@@ -5,7 +5,12 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { email: "", password: "" };
+    if (this.props.formType === "login") {
+      this.state = { email: "", password: "" };
+    } else {
+      this.state = { email: "", name: "", password: "" };
+    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -22,13 +27,33 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
-  navLink() {
+  loginLink() {
 		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
+			return (
+        <p>
+          New to Quickstarter?
+          &nbsp;
+          <Link to="/signup">Sign up!</Link>
+        </p>
+      );
 		} else {
-			return <Link to="/login">log in instead</Link>;
+      return "";
 		}
 	}
+
+  signupLink() {
+    if (this.props.formType === "signup") {
+      return (
+        <p>
+          Have an account?
+          &nbsp;
+          <Link to="/login">Log in</Link>
+        </p>
+      );
+    } else {
+      return "";
+    }
+  }
 
 	renderErrors() {
     if (this.props.errors) {
@@ -44,16 +69,50 @@ class SessionForm extends React.Component {
     }
 	}
 
+  renderNameField() {
+    if (this.props.formType === "signup") {
+      return(
+        <label> Name:
+          <input type="text"
+            value={this.state.name}
+            onChange={this.update("name")}
+            className="login-input" />
+        </label>
+      );
+    } else {
+      return "";
+    }
+  }
+
+  renderHeader() {
+    if (this.props.formType === "signup") {
+      return <h1>Sign up</h1>;
+    } else {
+      return <h1>Log in</h1>;
+    }
+  }
+
+  button() {
+    if (this.props.formType === "login") {
+      return "Log me in!";
+    } else {
+      return "Create account";
+    }
+  }
+
+
+
 	render() {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to BenchBnB!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
 					{this.renderErrors()}
 					<div className="login-form">
+            {this.loginLink()}
+            {this.renderHeader()}
 						<br/>
+            {this.renderNameField()}
+            <br/>
 						<label> Email:
 							<input type="text"
 								value={this.state.email}
@@ -68,7 +127,8 @@ class SessionForm extends React.Component {
 								className="login-input" />
 						</label>
 						<br/>
-						<input type="submit" value="Submit" />
+						<input type="submit" value={this.button()} />
+            {this.signupLink()}
 					</div>
 				</form>
 			</div>

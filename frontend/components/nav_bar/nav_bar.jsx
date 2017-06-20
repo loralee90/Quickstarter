@@ -11,7 +11,7 @@ const sessionLinks = () => (
 
 const personalNavBar = (currentUser, logout) => (
 	<hgroup className="header-group">
-    <h2 className="header-name">Hi, {currentUser.name}!</h2>
+    <h2 className="logo">QUICKSTARTER</h2>
     <button className="header-button" onClick={logout}>Log Out</button>
 	</hgroup>
 );
