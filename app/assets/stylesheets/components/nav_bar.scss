@@ -8,7 +8,7 @@
   position: relative;
   z-index: 1;
   align-items: center;
-  // color: $gray;
+  color: $gray;
 }
 
 .left-nav > ul,
@@ -22,6 +22,7 @@
   // color: #25CB68;
   // font-weight: bolder;
   // margin: auto;
+  align-self: center;
   width: 150px;
 }
 
