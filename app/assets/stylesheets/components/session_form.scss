@@ -12,15 +12,16 @@
 
 .login-form-box {
   position: absolute;
+  flex-direction: column;
   display: flex;
   top: 70px;
+  border: 1px solid $lighter-gray;
   // align-content: center;
 }
 
 .login-form {
   margin: auto;
   box-sizing: border-box;
-  border: 1px solid $light-gray;
   border-radius: 2px;
   width: 398px;
   padding: 20px;
@@ -40,7 +41,8 @@
 // }
 
 .login-form h1 {
-  font-size: 30px;
+  font-size: 35px;
+  font-weight: 400px;
   color: $dark-gray;
 }
 
@@ -53,7 +55,7 @@
 
 .login-input {
   width: 100%;
-  border: 1px solid gray;
+  border: 1px solid $dark-blue;
 }
 
 .login-form input[type=submit] {
@@ -61,19 +63,35 @@
   font-weight: bold;
 }
 
-.login-form p {
+// .login-form p {
+//   text-align: center;
+//   padding: 15px;
+//   color: $dark-blue;
+// }
+
+.login-form-box p {
   text-align: center;
-  padding: 15px;
+  padding: 25px;
+  color: $dark-blue;
+  background-color: #FCFCFC;
 }
 
-.login-form a {
+.login {
+  border-bottom: 1px solid $lighter-gray;
+}
+
+.signup {
+  border-top: 1px solid $lighter-gray;
+}
+
+.login-form-box a {
   font-weight: bold;
   color: $blue;
 }
 
 .login-form a:hover {
   font-weight: bold;
-  color: $dark-gray;
+  color: $dark-blue;
 }
 
 .login-input:focus {

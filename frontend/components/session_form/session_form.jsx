@@ -23,14 +23,19 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-      .then(() => this.props.history.push('/'));
+    if (e.currentTarget.value === "Demo login") {
+      this.props.processForm(
+        { email: "guest@guest.com", password: "password" }
+      );
+    } else {
+      this.props.processForm(user);
+    }
   }
 
   signupLink() {
 		if (this.props.formType === "login") {
 			return (
-        <p>
+        <p className="signup">
           New to Quickstarter?
           &nbsp;
           <Link to="/signup">Sign up!</Link>
@@ -44,7 +49,7 @@ class SessionForm extends React.Component {
   loginLink() {
     if (this.props.formType === "signup") {
       return (
-        <p>
+        <p className="login">
           Have an account?
           &nbsp;
           <Link to="/login">Log in</Link>
@@ -98,6 +103,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  demoButton() {
+    return "Demo login";
+  }
+
 
 
 	render() {
@@ -105,8 +114,8 @@ class SessionForm extends React.Component {
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					{this.renderErrors()}
+          {this.loginLink()}
 					<div className="login-form">
-            {this.loginLink()}
             {this.renderHeader()}
 						<br/>
             {this.renderNameField()}
@@ -122,8 +131,9 @@ class SessionForm extends React.Component {
 							className="login-input" placeholder="Password" />
 						<br/>
 						<input type="submit" value={this.button()} />
-            {this.signupLink()}
+						<input type="submit" value={this.demoButton()} onClick={this.handleSubmit} />
 					</div>
+          {this.signupLink()}
 				</form>
 			</div>
 		);

@@ -4,7 +4,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:email],
       params[:user][:password]
     )
-    
+
     if @user
       session[:session_token] = @user.reset_token
       render '/api/users/show'
