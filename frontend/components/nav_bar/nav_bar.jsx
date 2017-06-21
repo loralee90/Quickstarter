@@ -1,30 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const rightNav = (currentUser) => {
-  if (currentUser) {
-    return <li>Profile Icon</li>;
-  } else {
-    return (
-      <div>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign up</Link>
-        </li>
-      </div>
-    );
-  }
+const profileIcon = (currentUser) => {
+  return currentUser ? <li>Profile Icon</li> : "";
 };
 
-const NavBar = ({ currentUser }) => {
+const loginLink = (currentUser) => {
+  return currentUser ? "" : <li><Link to="/login">Log in</Link></li>
+}
+
+const signupLink = (currentUser) => {
+  return currentUser ? "" : <li><Link to="/signup">Sign up</Link></li>
+}
+
+const NavBar = ({ currentUser, logout }) => {
   return (
     <header className="nav-bar">
       <nav className="left-nav">
         <ul>
           <li id="explore-link">
             <i className="fa fa-compass"></i>
+            &nbsp;
             <span>Explore</span>
           </li>
           <li id="start-project-link">
@@ -40,7 +36,12 @@ const NavBar = ({ currentUser }) => {
           <li>
             <i className="fa fa-search"></i>
           </li>
-          {rightNav(currentUser)}
+          {profileIcon(currentUser)}
+          {loginLink(currentUser)}
+          {signupLink(currentUser)}
+          <li>
+            <button className="header-button" onClick={logout}>Log Out</button>
+          </li>
         </ul>
       </nav>
     </header>
