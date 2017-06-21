@@ -30,8 +30,8 @@ const NavBar = ({ currentUser, logout }) => {
       </nav>
 
       <Link to="/">
-        <h1 className="logo-quick">QUICK</h1>
-        <h1 className="logo-starter">STARTER</h1>
+        <p className="logo-quick">QUICK</p>
+        <p className="logo-starter">STARTER</p>
       </Link>
 
       <nav className="right-nav">

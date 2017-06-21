@@ -107,8 +107,6 @@ class SessionForm extends React.Component {
     return "Demo login";
   }
 
-
-
 	render() {
 		return (
 			<div className="login-form-container">
@@ -138,7 +136,6 @@ class SessionForm extends React.Component {
 			</div>
 		);
 	}
-
 }
 
 export default withRouter(SessionForm);
