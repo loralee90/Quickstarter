@@ -30,10 +30,20 @@
   margin-left: 21px;
   cursor: pointer;
   padding: 7px 9px;
+  display: flex;
 }
 
 #explore-link i {
   color: $green;
+  position: relative;
+  top: -5%;
+  font-size: 25px;
+}
+
+.right-nav i {
+  position: relative;
+  top: -5%;
+  font-size: 20px;
 }
 
 .logo-quick,

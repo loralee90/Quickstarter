@@ -20,7 +20,7 @@ const NavBar = ({ currentUser, logout }) => {
         <ul>
           <li id="explore-link">
             <i className="fa fa-compass"></i>
-            &nbsp;
+            &nbsp;&nbsp;
             <span>Explore</span>
           </li>
           <li id="start-project-link">
