@@ -44,7 +44,7 @@ button {
 button,
 input[type="submit"] {
   cursor: pointer;
-  background-color: #25CB68;
+  background-color: $green;
   color: white;
   text-align: center;
   margin: auto;
@@ -52,7 +52,7 @@ input[type="submit"] {
 
 button,
 input[type="submit"]:hover {
-	background-color: #05AF3C;
+	background-color: $dark-green;
   font-weight: 500px;
   // border-color: $darkest-blue;
 }

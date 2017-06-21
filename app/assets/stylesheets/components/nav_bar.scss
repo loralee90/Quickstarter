@@ -8,7 +8,7 @@
   position: relative;
   z-index: 1;
   align-items: center;
-  color: $gray;
+  // color: $navy;
 }
 
 .left-nav > ul,
@@ -44,10 +44,10 @@
 }
 
 #explore-link i {
-  color: #25CB68;
+  color: $green;
 }
 
 .header-button {
   background-color: white;
-  color: #353535;
+  color: $dark-gray;
 }

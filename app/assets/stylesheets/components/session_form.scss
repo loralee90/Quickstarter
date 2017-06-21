@@ -7,20 +7,20 @@
   width: 100%;
   position: absolute;
   // margin: auto;
-  background-color: #F7F5F2;
+  background-color: $sand;
 }
 
 .login-form-box {
   position: absolute;
   display: flex;
-  top: 100px;
+  top: 70px;
   // align-content: center;
 }
 
 .login-form {
   margin: auto;
   box-sizing: border-box;
-  border: 1px solid #F1EEEA;
+  border: 1px solid $light-gray;
   border-radius: 2px;
   width: 398px;
   padding: 20px;
@@ -41,7 +41,7 @@
 
 .login-form h1 {
   font-size: 30px;
-  color: #353535;
+  color: $dark-gray;
 }
 
 .login-form input {
@@ -68,12 +68,12 @@
 
 .login-form a {
   font-weight: bold;
-  color: #2752ff;
+  color: $blue;
 }
 
 .login-form a:hover {
   font-weight: bold;
-  color: #353535;
+  color: $dark-gray;
 }
 
 .login-input:focus {
