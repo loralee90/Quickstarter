@@ -12,7 +12,7 @@ Loads React web app
 ### Users
 
 - `POST /api/users`
-- `PATCH /api/users`
+- `PATCH /api/users/:id`
 
 ### Session
 
@@ -22,22 +22,22 @@ Loads React web app
 ### Projects
 
 - `POST /api/projects`
-- `GET /api/projects/:projectId`
-- `PATCH /api/projects/:projectId`
-- `DELETE /api/projects/:projectId`
+- `GET /api/projects/:id`
+- `PATCH /api/projects/:id`
+- `DELETE /api/projects/:id`
 
 ### Rewards
 
-- `GET /api/projects/:projectId/rewards`
-- `POST /api/projects/:projectId/rewards`
-- `DELETE /api/projects/:projectId/rewards/:rewardId`
+- `DELETE /api/rewards/:id`
+- `PATCH /api/rewards/:id`
+
 
 ### Pledges
 
-- `POST /api/rewards/:rewardId/pledges`
+<!-- send up either project or reward id -->
+- `POST /api/pledges`
 
 ### Categories
 
 - `GET /api/categories`
-- `GET /api/categories/:categoryId`
-- `GET /api/categories/:categoryId/projects`
+- `GET /api/categories/:id`

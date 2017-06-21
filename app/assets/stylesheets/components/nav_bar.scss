@@ -31,9 +31,28 @@
   cursor: pointer;
   padding: 7px 9px;
   display: flex;
+  border-bottom: 3px solid white;
 }
 
+.left-nav > ul > li:hover,
+.right-nav > ul > li:hover {
+  border-bottom: 3px solid $green;
+}
+
+// .left-nav a,
+// .right-nav a {
+//   // padding: 20px;
+//   box-sizing: border-box;
+//   border-bottom: 3px solid white;
+// }
+
+// .left-nav a:hover,
+// .right-nav a:hover {
+//   border-bottom: 3px solid $green;
+// }
+
 #explore-link i {
+  // padding: 20px;
   color: $green;
   position: relative;
   top: -5%;
@@ -41,6 +60,7 @@
 }
 
 .right-nav i {
+  // padding: 20px;
   position: relative;
   top: -5%;
   font-size: 20px;

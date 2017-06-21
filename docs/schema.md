@@ -31,15 +31,15 @@ project_id   | integer   | not null, foreign key (references projects), indexed
 title        | string    | not null
 description  | string    | not null
 cost         | integer   | not null
-delivery_date| string    | optional
+delivery_date| date      | optional
 
 ## pledges
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-project_id  | integer   | not null, foreign key (references users), indexed
-reward_id   | integer   | optional, foreign key (references rewards), indexed
-backer_id   | integer   | not null, foreign key (references users), indexed
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+pledgeable_type  | string    | not null, only "projects or rewards"
+pledgeable_id    | integer   | not null, foreign key (references rewards), indexed
+backer_id        | integer   | not null, foreign key (references users), indexed
 
 ## categories
 column name | data type | details

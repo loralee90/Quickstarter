@@ -110,7 +110,9 @@ class SessionForm extends React.Component {
   }
 
   demoButton() {
-    return "Demo login";
+    if (this.props.formType === "login") {
+      return <input type="submit" value="Demo login" onClick={this.handleSubmit} />;
+    }
   }
 
 	render() {
@@ -135,7 +137,7 @@ class SessionForm extends React.Component {
 							className="login-input" placeholder="Password" />
 						<br/>
 						<input type="submit" value={this.button()} />
-						<input type="submit" value={this.demoButton()} onClick={this.handleSubmit} />
+						{this.demoButton()}
 					</div>
           {this.signupLink()}
 				</form>

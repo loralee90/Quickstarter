@@ -1,7 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// const profileDropdown = () => (currentUser, logout) => {
+//   return (
+//     <li>
+//       <ul>
+//         <li>
+//           <Link to="/users/id/edit">Edit Profile</Link>
+//         </li>
+//       </ul>
+//       <p className="logout">
+//         You're signed in as {currentUser.name}&nbsp;
+//         <button onClick={logout}>Log Out</button>
+//       </p>
+//     </li>
+//   );
+// }
+
 const profileIcon = (currentUser) => {
+  // const profileDropdown = (currentUser, logout) => {
+  //   return (
+  //     <li>
+  //       <ul>
+  //         <li>
+  //           <Link to="/users/id/edit">Edit Profile</Link>
+  //         </li>
+  //       </ul>
+  //       <p className="logout">
+  //         You're signed in as {currentUser.name}&nbsp;
+  //         <button onClick={logout}>Log Out</button>
+  //       </p>
+  //     </li>
+  //   );
+  // }
+
   return currentUser ? <li>Profile Icon</li> : "";
 };
 

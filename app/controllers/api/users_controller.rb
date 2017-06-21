@@ -11,10 +11,10 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.new(user_params)
+    @user = User.find_by(user_params)
 
     if @user.save
-      render
+      render :show
     end
   end
 
