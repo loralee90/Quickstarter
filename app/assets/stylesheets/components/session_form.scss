@@ -63,6 +63,16 @@
   padding: 10px;
 }
 
+.login-form a {
+  font-weight: bold;
+  color: #2752ff;
+}
+
+.login-form a:hover {
+  font-weight: bold;
+  color: #353535;
+}
+
 .login-input:focus {
   border: 1px solid blue;
 }
