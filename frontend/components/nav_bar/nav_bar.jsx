@@ -29,7 +29,9 @@ const NavBar = ({ currentUser, logout }) => {
         </ul>
       </nav>
 
-      <nav className="nav-logo">QUICKSTARTER</nav>
+      <Link to="/">
+        <img className="nav-logo" src="images/kickstarter-logo-light.png" alt="Kickstarter"></img>
+      </Link>
 
       <nav className="right-nav">
         <ul>

@@ -1,6 +1,13 @@
+html {
+	position: relative;
+	height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
 #root {
   width: 100%;
   margin: 0 auto;
   font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
   font-size: 12px;
+  color: #353535;
 }

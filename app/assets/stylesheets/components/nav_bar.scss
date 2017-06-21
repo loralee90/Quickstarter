@@ -5,6 +5,9 @@
   font-size: 15px;
   box-sizing: border-box;
   box-shadow: 0px 0.5px 13px 0.5px rgba(194,192,194,1);
+  position: relative;
+  z-index: 1;
+  align-items: center;
   // color: $gray;
 }
 
@@ -14,11 +17,12 @@
 }
 
 .nav-logo {
-  display: flex;
-  align-items: center;
-  color: #25CB68;
-  font-weight: bolder;
-  font-size: 20px;
+  // position: absolute;
+  // align-items: center;
+  // color: #25CB68;
+  // font-weight: bolder;
+  // margin: auto;
+  width: 150px;
 }
 
 .left-nav,
@@ -40,4 +44,9 @@
 
 #explore-link i {
   color: #25CB68;
+}
+
+.header-button {
+  background-color: white;
+  color: #353535;
 }

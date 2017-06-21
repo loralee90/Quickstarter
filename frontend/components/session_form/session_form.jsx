@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push('/'));
   }
 
-  loginLink() {
+  signupLink() {
 		if (this.props.formType === "login") {
 			return (
         <p>
@@ -41,7 +41,7 @@ class SessionForm extends React.Component {
 		}
 	}
 
-  signupLink() {
+  loginLink() {
     if (this.props.formType === "signup") {
       return (
         <p>
@@ -72,12 +72,10 @@ class SessionForm extends React.Component {
   renderNameField() {
     if (this.props.formType === "signup") {
       return(
-        <label> Name:
-          <input type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
-            className="login-input" />
-        </label>
+        <input type="text"
+          value={this.state.name}
+          onChange={this.update("name")}
+          className="login-input" placeholder="Name" />
       );
     } else {
       return "";
@@ -113,19 +111,15 @@ class SessionForm extends React.Component {
 						<br/>
             {this.renderNameField()}
             <br/>
-						<label> Email:
-							<input type="text"
-								value={this.state.email}
-								onChange={this.update("email")}
-								className="login-input" />
-						</label>
+						<input type="text"
+							value={this.state.email}
+							onChange={this.update("email")}
+							className="login-input" placeholder="Email" />
 						<br/>
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
+						<input type="password"
+							value={this.state.password}
+							onChange={this.update("password")}
+							className="login-input" placeholder="Password" />
 						<br/>
 						<input type="submit" value={this.button()} />
             {this.signupLink()}

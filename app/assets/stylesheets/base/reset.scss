@@ -44,6 +44,17 @@ button {
 button,
 input[type="submit"] {
   cursor: pointer;
+  background-color: #25CB68;
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+button,
+input[type="submit"]:hover {
+	background-color: #05AF3C;
+  font-weight: 500;
+  // border-color: $darkest-blue;
 }
 
 /* Clearfix */
