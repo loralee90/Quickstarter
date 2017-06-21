@@ -20,6 +20,12 @@ class SessionForm extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    // if (this.props.formType !== nextProps.formType) {
+      this.props.clearErrors();
+    // }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -62,8 +68,8 @@ class SessionForm extends React.Component {
 
 	renderErrors() {
     if (this.props.errors) {
-      return(
-        <ul>
+      return (
+        <ul className="errors">
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -111,10 +117,10 @@ class SessionForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					{this.renderErrors()}
           {this.loginLink()}
 					<div className="login-form">
             {this.renderHeader()}
+            {this.renderErrors()}
 						<br/>
             {this.renderNameField()}
             <br/>

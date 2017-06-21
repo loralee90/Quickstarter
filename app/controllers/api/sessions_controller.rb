@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       session[:session_token] = @user.reset_token
       render '/api/users/show'
     else
-      render json: ["Invalid email or password"], status: 401
+      render json: ["Invalid login credentials"], status: 401
     end
   end
 
