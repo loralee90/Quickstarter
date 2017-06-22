@@ -37,6 +37,7 @@ delivery_date| date      | optional
 column name      | data type | details
 -----------------|-----------|-----------------------
 id               | integer   | not null, primary key
+amount           | integer   | not null
 pledgeable_type  | string    | not null, only "projects or rewards"
 pledgeable_id    | integer   | not null, foreign key (references rewards), indexed
 backer_id        | integer   | not null, foreign key (references users), indexed

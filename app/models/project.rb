@@ -24,6 +24,7 @@ class Project < ApplicationRecord
     foreign_key: :creator_id
 
   has_many :rewards
+  has_many :pledges, as: :pledgeable
 
   accepts_nested_attributes_for :rewards
 end

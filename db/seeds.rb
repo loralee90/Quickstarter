@@ -14,8 +14,8 @@ Project.create(
   title: "Violini - The World's Smallest Violin",
   url: "mini.com",
   description: "World's smallest violin",
-  end_date: Date.now(),
+  end_date: DateTime.now,
   funding_goal: 1000,
   creator_id: 1,
-  category_id: 1  
+  category_id: 1
 )
