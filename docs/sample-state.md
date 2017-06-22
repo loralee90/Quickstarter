@@ -5,6 +5,11 @@
     errors: []
   },
 
+  user: {
+    pledge_ids: [1,2,3],
+    project_ids: [4,2,3]
+  }
+
   projects: {
     "1": {
       id: 1,

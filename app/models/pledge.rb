@@ -13,6 +13,10 @@
 
 class Pledge < ApplicationRecord
   belongs_to :pledgeable, polymorphic: true
+  belongs_to :user,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :backer_id
 
   validates :amount, :pledgeable_id, :pledgeable_type, :backer_id, presence: true
 end
