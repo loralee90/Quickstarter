@@ -14,9 +14,7 @@ column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
 title              | string    | not null
-url                | string    | not null
 description        | text      | not null
-<!-- main_image_url     | string    | optional -->
 end_date           | date      | not null
 funding_goal       | integer   | not null
 details            | text      | optional

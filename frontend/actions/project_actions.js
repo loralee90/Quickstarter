@@ -12,8 +12,8 @@ const receiveProject = project => {
   return { type: RECEIVE_PROJECT, project };
 };
 
-const removeProject = project => {
-  return { type: REMOVE_PROJECT, project }
+const removeProject = ({project, rewards}) => {
+  return { type: REMOVE_PROJECT, project, rewards }
 };
 
 export const fetchProjects = () => dispatch => {

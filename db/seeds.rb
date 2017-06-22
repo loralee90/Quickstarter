@@ -12,10 +12,26 @@ User.create(name: "Bob", email: "bob@bob.com", password: "password")
 
 Project.create(
   title: "Violini - The World's Smallest Violin",
-  url: "mini.com",
   description: "World's smallest violin",
   end_date: DateTime.now,
   funding_goal: 1000,
   creator_id: 1,
   category_id: 1
 )
+
+Project.create(
+  title: "Pegasus - The Flying Car",
+  description: "A car that flies!",
+  end_date: DateTime.now,
+  funding_goal: 50000,
+  creator_id: 2,
+  category_id: 2
+)
+
+Category.create(name: "Art")
+Category.create(name: "Design")
+Category.create(name: "Fashion")
+Category.create(name: "Film & Video")
+Category.create(name: "Food")
+Category.create(name: "Music")
+Category.create(name: "Technology")

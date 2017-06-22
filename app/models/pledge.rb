@@ -14,8 +14,5 @@
 class Pledge < ApplicationRecord
   belongs_to :pledgeable, polymorphic: true
 
-  validates :amount, :pledgeable_id, :pledgeable_type, presence: true
+  validates :amount, :pledgeable_id, :pledgeable_type, :backer_id, presence: true
 end
-
-
-# Pledge.create(amount: 500, pledgeable_type: "project", pledgeable_id: 400, backer_id: 1)
