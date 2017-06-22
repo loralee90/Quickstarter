@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Dropdown = ({ logout }) => {
+const Dropdown = ({ currentUser, logout, hiddenClass }) => {
   return (
-    <div id="dropdown-container" className="dropdown hidden">
-     <ul id="dropdown-body" className="dropdown-content">
+     <ul id="dropdown-body" className={`dropdown-content ${hiddenClass}`} onClick={(e) => e.stopPropagation()}>
        <li>
          <Link to="/users/id/edit">Edit Profile</Link>
        </li>
@@ -13,7 +12,6 @@ const Dropdown = ({ logout }) => {
        <button onClick={logout}>Log Out</button>
        </li>
      </ul>
-   </div>
  );
 };
 

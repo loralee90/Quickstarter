@@ -9,3 +9,13 @@
 User.create(name: "Guest", email: "guest@guest.com", password: "password")
 User.create(name: "Lora Lee", email: "loraalee@gmail.com", password: "password")
 User.create(name: "Bob", email: "bob@bob.com", password: "password")
+
+Project.create(
+  title: "Violini - The World's Smallest Violin",
+  url: "mini.com",
+  description: "World's smallest violin",
+  end_date: Date.now(),
+  funding_goal: 1000,
+  creator_id: 1,
+  category_id: 1  
+)
