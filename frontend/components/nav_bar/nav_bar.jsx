@@ -1,48 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// const profileDropdown = () => (currentUser, logout) => {
-//   return (
-//     <li>
-//       <ul>
-//         <li>
-//           <Link to="/users/id/edit">Edit Profile</Link>
-//         </li>
-//       </ul>
-//       <p className="logout">
-//         You're signed in as {currentUser.name}&nbsp;
-//         <button onClick={logout}>Log Out</button>
-//       </p>
-//     </li>
-//   );
-// }
+const renderDropdown = () => {
+  document.getElementById("dropdown-container").classList.toggle("show");
+  // document.getElementById("dropdown-container").classList.toggle("hidden");
+}
+
+const onClick = (e) => {
+  if (!e.currentTarget.matches('.dropbtn')) {
+    const dropdown = document.getElementByClassName("dropdown-body");
+
+    if (dropdown.classList.contains('show')) {
+      dropdown.classList.remove('show');
+    }
+  }
+}
+
+window.onClick = onClick;
 
 const profileIcon = (currentUser) => {
-  // const profileDropdown = (currentUser, logout) => {
-  //   return (
-  //     <li>
-  //       <ul>
-  //         <li>
-  //           <Link to="/users/id/edit">Edit Profile</Link>
-  //         </li>
-  //       </ul>
-  //       <p className="logout">
-  //         You're signed in as {currentUser.name}&nbsp;
-  //         <button onClick={logout}>Log Out</button>
-  //       </p>
-  //     </li>
-  //   );
-  // }
-
-  return currentUser ? <li>Profile Icon</li> : "";
+  return currentUser ? <li onClick={renderDropdown} className="dropbtn">Profile Icon</li> : "";
 };
 
 const loginLink = (currentUser) => {
-  return currentUser ? "" : <li><Link to="/login">Log in</Link></li>
+  return currentUser ? "" : <li className="nav-item"><Link to="/login">Log in</Link></li>
 }
 
 const signupLink = (currentUser) => {
-  return currentUser ? "" : <li><Link to="/signup">Sign up</Link></li>
+  return currentUser ? "" : <li className="nav-item"><Link to="/signup">Sign up</Link></li>
 }
 
 const NavBar = ({ currentUser, logout }) => {
@@ -50,12 +35,12 @@ const NavBar = ({ currentUser, logout }) => {
     <header className="nav-bar">
       <nav className="left-nav">
         <ul>
-          <li id="explore-link">
+          <li className="explore-link nav-item hidden">
             <i className="fa fa-compass"></i>
             &nbsp;&nbsp;
             <span>Explore</span>
           </li>
-          <li id="start-project-link">
+          <li className="start-project-link nav-item">
             <Link to="/projects/new">Start a project</Link>
           </li>
         </ul>

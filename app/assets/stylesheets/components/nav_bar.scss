@@ -11,58 +11,56 @@
   align-items: center;
 }
 
-.left-nav > ul,
-.right-nav > ul {
-  display: flex;
-}
-
 .left-nav,
 .right-nav {
   display: flex;
   align-items: center;
   font-weight: 500;
-  height: 60px;
+  height: 100%;
   font-size: 100%;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  height: 100%;
 }
 
 .left-nav > ul > li,
 .right-nav > ul > li {
-  margin-left: 21px;
+  align-items: center;
   cursor: pointer;
-  padding: 7px 9px;
+  height: 100%;
   display: flex;
+}
+
+.left-nav > ul > li {
+  margin-left: 21px;
+  margin-right: 21px;
+}
+
+.right-nav > ul > li{
+  margin-right: 21px;
+  margin-left: 21px;
+}
+
+.nav-item {
   border-bottom: 3px solid white;
 }
 
-.left-nav > ul > li:hover,
-.right-nav > ul > li:hover {
+.nav-item:hover {
+  height: 100%;
   border-bottom: 3px solid $green;
 }
 
-// .left-nav a,
-// .right-nav a {
-//   // padding: 20px;
-//   box-sizing: border-box;
-//   border-bottom: 3px solid white;
-// }
-
-// .left-nav a:hover,
-// .right-nav a:hover {
-//   border-bottom: 3px solid $green;
-// }
-
-#explore-link i {
-  // padding: 20px;
+.explore-link i {
   color: $green;
   position: relative;
-  top: -5%;
   font-size: 25px;
 }
 
 .right-nav i {
-  // padding: 20px;
   position: relative;
-  top: -5%;
   font-size: 20px;
 }
 
@@ -91,3 +89,7 @@
   background-color: white;
   color: $dark-gray;
 }
+
+// .hidden {
+//   display: none;
+// }
