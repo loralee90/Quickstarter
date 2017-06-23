@@ -20,22 +20,48 @@ class NavBar extends React.Component {
 
   toggleDropdown(e) {
     e.stopPropagation();
-    this.setState({showMe: !this.state.showMe})
+    this.setState({showMe: !this.state.showMe});
   }
 
   profileIcon() {
-    return this.props.currentUser ? <li onClick={this.toggleDropdown} className="dropbtn">
-    Profile Icon
-    <DropdownContainer hiddenClass={this.state.showMe ? "" : "hidden"}/>
-    </li> : "";
-  };
+    if (this.props.currentUser) {
+      return (
+        <li onClick={this.toggleDropdown} className="dropbtn">
+          Profile Icon
+          <DropdownContainer hiddenClass={this.state.showMe ? "" : "hidden"} />
+        </li>
+      );
+    } else {
+      return "";
+    }
+  }
 
   loginLink() {
-    return this.props.currentUser ? "" : <li className="nav-item"><Link to="/login">Log in</Link></li>
+    if (this.props.currentUser) {
+      return "";
+    } else {
+      return (
+        <li className="nav-item">
+          <Link to="/login">
+            Log in
+          </Link>
+        </li>
+      );
+    }
   }
 
   signupLink() {
-    return this.props.currentUser ? "" : <li className="nav-item"><Link to="/signup">Sign up</Link></li>
+    if (this.props.currentUser) {
+      return "";
+    } else {
+      return (
+        <li className="nav-item">
+          <Link to="/signup">
+            Sign up
+          </Link>
+        </li>
+      );
+    }
   }
 
   render() {
@@ -67,14 +93,11 @@ class NavBar extends React.Component {
             {this.profileIcon()}
             {this.loginLink()}
             {this.signupLink()}
-            <li>
-              <button className="header-button" onClick={this.props.logout}>Log Out</button>
-            </li>
           </ul>
         </nav>
       </header>
     );
   }
-};
+}
 
 export default NavBar;
