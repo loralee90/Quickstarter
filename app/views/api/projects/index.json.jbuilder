@@ -2,5 +2,6 @@
   json.set! project.id do
     json.extract! project, :id, :title, :description, :creator_id, :category_id, :end_date, :funding_goal, :total_pledge_amount
     json.category_name project.category.name
+    json.creator_name project.creator.name
   end
 end
