@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectForm from './project_form';
+import ProjectFormContainer from './project_form_container';
 
 class ProjectFormPage extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class ProjectFormPage extends React.Component {
           <button className="toggleLink" onClick={this.toggleForm}>Reward</button>
         </div>
         <p className="project-form-copy">{this.formCopy()}</p>
-        <ProjectForm createProject={this.props.createProject} categories={this.props.categories} formType={this.state.formType} />
+        <ProjectFormContainer formType={this.state.formType} />
       </section>
     );
   }
