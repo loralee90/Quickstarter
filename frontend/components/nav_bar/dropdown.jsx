@@ -10,7 +10,7 @@ const Dropdown = ({ currentUser, logout, hiddenClass }) => {
          </li>
        </div>
        <li className="logout">
-         You're signed in as {currentUser.name}&nbsp;&nbsp;
+         You're logged in as <p>{currentUser.name}</p>&nbsp;&nbsp;
          <button onClick={logout}>Log Out</button>
        </li>
      </ul>
