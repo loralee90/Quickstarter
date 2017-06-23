@@ -6,17 +6,14 @@ class ProjectFormPage extends React.Component {
     super(props);
 
     this.state = { formType: "basics" };
-    this.toggleForm = this.toggleForm.bind(this);
     this.formCopy = this.formCopy.bind(this);
+    this.updateFormType = this.updateFormType.bind(this);
   }
 
-  toggleForm(e) {
-    e.preventDefault();
-    if (this.state.formType === "basics") {
-      this.setState({formType: "rewards"});
-    } else {
-      this.setState({formType: "basics"});
-    }
+  updateFormType(type) {
+    return () => {
+      this.setState({ formType: type });
+    };
   }
 
   formCopy() {
@@ -31,8 +28,8 @@ class ProjectFormPage extends React.Component {
     return (
       <section className="project-form-page">
         <div className="project-form-nav">
-          <button className="toggleLink" onClick={this.toggleForm}>Basics</button>
-          <button className="toggleLink" onClick={this.toggleForm}>Reward</button>
+          <button className="toggleLink" onClick={this.updateFormType("basics")}>Basics</button>
+          <button className="toggleLink" onClick={this.updateFormType("rewards")}>Reward</button>
         </div>
         <p className="project-form-copy">{this.formCopy()}</p>
         <ProjectFormContainer formType={this.state.formType} />

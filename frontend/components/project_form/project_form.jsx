@@ -12,7 +12,7 @@ class ProjectForm extends React.Component {
       details: "",
       category_id: 0,
       rewards: {
-        1: {title: ""}
+        1: {title: "", description: "", cost: 0, delivery_date: ""}
       }
     };
 
@@ -31,6 +31,10 @@ class ProjectForm extends React.Component {
     e.preventDefault();
     this.props.createProject(this.state)
       .then(data => this.props.history.push(`/projects/${data.id}`));
+  }
+
+  updateReward(num) {
+    // this.setState somehow
   }
 
   render() {
@@ -73,6 +77,14 @@ class ProjectForm extends React.Component {
             </select>
           </div>
           <div className="project-basics-field">
+            <label className="project-basics-label">Project details</label>
+            <input
+              type="textarea"
+              value={this.state.details}
+              onChange={this.update('details')}
+            />
+          </div>
+          <div className="project-basics-field">
             <label className="project-basics-label">End on date</label>
             <input
               type="date"
@@ -89,12 +101,44 @@ class ProjectForm extends React.Component {
               onChange={this.update('funding_goal')}
             />
           </div>
-          <button className="project-form-button">Save project</button>
+          <button className="project-form-button">Create project</button>
         </form>
       );
     } else {
+      // <RewardForm updateReward={ this.updateReward.bind(this, rewardNumber) } />
       return (
-        <p></p>
+        <form onSubmit={this.handleSubmit}>
+          <div className="reward-form-container">
+            <label className="reward-number">Reward #1
+              <label className="reward-form-label">Title</label>
+              <input
+                type="text"
+                value={this.state.rewards[1].title}
+                onChange={this.update(this.state.rewards[1].title)}
+                />
+              <label className="reward-form-label">Pledge amount</label>
+              <input
+                type="number"
+                value={this.state.rewards[1].cost}
+                onChange={this.update(this.state.rewards[1].cost)}
+                placeholder="$ 0"
+                />
+              <label className="reward-form-label">Description</label>
+              <input
+                type="text"
+                value={this.state.rewards[1].description}
+                onChange={this.update(this.state.rewards[1].description)}
+                />
+              <label className="reward-form-label">Estimated delivery</label>
+              <input
+                type="date"
+                value={this.state.rewards[1].delivery_date}
+                onChange={this.update(this.state.rewards[1].delivery_date)}
+                />
+            </label>
+            <button className="project-form-button">Create project</button>
+          </div>
+        </form>
       );
     }
   }

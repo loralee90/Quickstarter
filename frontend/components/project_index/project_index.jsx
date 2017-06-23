@@ -8,7 +8,6 @@ class ProjectIndex extends React.Component {
   }
 
   render() {
-    ;
     return (
       <section className="projects-index">
         <ul>
