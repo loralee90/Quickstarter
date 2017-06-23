@@ -6,6 +6,8 @@ class ProjectFormPage extends React.Component {
     super(props);
 
     this.state = { formType: "basics" };
+    this.toggleForm = this.toggleForm.bind(this);
+    this.formCopy = this.formCopy.bind(this);
   }
 
   toggleForm(e) {
@@ -26,15 +28,14 @@ class ProjectFormPage extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <section className="project-form-page">
         <div className="project-form-nav">
-          <button class="tablink" onClick={toggleForm(e)}>Basics</button>
-          <button class="tablink" onClick={toggleForm(e)}>Reward</button>
+          <button className="toggleLink" onClick={this.toggleForm}>Basics</button>
+          <button className="toggleLink" onClick={this.toggleForm}>Reward</button>
         </div>
         <p className="project-form-copy">{this.formCopy()}</p>
-        <ProjectForm formType={this.state.formType} />
+        <ProjectForm createProject={this.props.createProject} categories={this.props.categories} formType={this.state.formType} />
       </section>
     );
   }

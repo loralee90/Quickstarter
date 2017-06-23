@@ -152,7 +152,7 @@ class ProjectForm extends React.Component {
               onChange={this.update('funding_goal')}
             />
           </div>
-          <button class="project-form-button">Save project</button>
+          <button className="project-form-button">Save project</button>
         </form>
       );
     } else {
