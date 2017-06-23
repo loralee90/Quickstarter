@@ -34,23 +34,34 @@
   display: flex;
 }
 
-.left-nav > ul > li {
-  margin-left: 21px;
-  margin-right: 21px;
-}
+// .left-nav > ul > li {
+//   margin-left: 21px;
+//   margin-right: 21px;
+// }
+//
+// .right-nav > ul > li{
+//   margin-right: 21px;
+//   margin-left: 21px;
+// }
 
-.right-nav > ul > li{
-  margin-right: 21px;
-  margin-left: 21px;
+.dropbtn {
+  margin-right: 0;
 }
 
 .nav-item {
   border-bottom: 3px solid white;
+  margin-left: 21px;
+  margin-right: 21px;
 }
 
 .nav-item:hover {
   height: 100%;
   border-bottom: 3px solid $green;
+}
+
+.fa-search {
+  margin-left: 21px;
+  margin-right: 21px;
 }
 
 .explore-link i {
