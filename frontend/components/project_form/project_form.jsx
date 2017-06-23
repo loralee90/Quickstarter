@@ -19,6 +19,10 @@ class ProjectForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
+
   update(field) {
     return e => this.setState({[field]: e.currentTarget.value});
   }
@@ -61,8 +65,8 @@ class ProjectForm extends React.Component {
             <label className="project-basics-label">Category</label>
             <select
               value={this.state.category_id}
-              onChange={this.update('category_id')}
-              defaultValue="Select your category">
+              onChange={this.update('category_id')}>
+              <option disabled="true">Select a category</option>
               {this.props.categories.map(category => {
                 return <option value={category.id} key={category.id}>{category.name}</option>;
               })}

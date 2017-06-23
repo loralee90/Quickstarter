@@ -15,11 +15,8 @@ const ProjectIndexItem = ({project}) => {
         {project.title}:
       </Link>
       <p>{project.description}</p>
-      <Link to={`/projects/${project.id}`}>
-        {project.title}:
-      </Link>
-      <p>green bar</p>
       <p>by {project.creator_name}</p>
+      <p>green bar</p>
       <p>{project.total_pledge_amount} pledged</p>
       <p>100% funded</p>
       <p>27 days to go</p>

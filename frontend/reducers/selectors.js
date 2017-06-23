@@ -10,5 +10,6 @@ export const selectAllProjects = ({projects}) => {
 };
 
 export const selectAllCategories = ({categories}) => {
+  
   return values(categories);
 };

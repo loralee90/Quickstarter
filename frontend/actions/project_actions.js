@@ -6,7 +6,6 @@ export const REMOVE_PROJECT = "REMOVE_PROJECT";
 export const EDIT_PROJECT = "EDIT_PROJECT";
 
 export const receiveProjects = projects => {
-  ;
   return { type: RECEIVE_PROJECTS, projects };
 };
 
