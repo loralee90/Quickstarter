@@ -16,7 +16,7 @@ class ProjectForm extends React.Component {
       funding_goal: 0,
       details: "",
       category_id: 0,
-      rewardsNums: [],
+      rewardsNums: [1],
       rewards: {
         1: {title: "", description: "", cost: 0, delivery_date: ""}
       }
@@ -42,6 +42,7 @@ class ProjectForm extends React.Component {
   }
 
   updateReward(rewardNum, field) {
+    debugger;
     if (this.state.rewardsNums.includes(rewardNum)) {
       return e => {
         this.setState({ rewards: { [rewardNum]: { [field]: e.currentTarget.value } } });

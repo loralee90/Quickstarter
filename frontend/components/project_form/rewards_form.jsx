@@ -13,11 +13,13 @@ class RewardsForm extends React.Component {
     // };
 
     // this.updateReward = this.updateReward.bind(this);
-    // this.handleAdd = this.handleAdd.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
-  handleAdd() {
-    let rewardNum = this.state.rewardsNums.length + 1;
+  handleAdd(e) {
+    e.preventDefault();
+    debugger;
+    let rewardNum = this.props.state.rewardsNums.length + 1;
     // let rewardsNums = this.state.rewardsNums.slice();
     this.props.updateReward(rewardNum);
     // rewardsNums.push(newNum);
@@ -32,6 +34,7 @@ class RewardsForm extends React.Component {
   // }
 
   render() {
+    debugger;
     if (this.props.formType === "rewards") {
       return (
         <section className="reward-form-container">
