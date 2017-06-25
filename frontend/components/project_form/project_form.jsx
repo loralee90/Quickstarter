@@ -1,146 +1,83 @@
 import React from 'react';
+import BasicsFormContainer from './basics_form_container';
+import RewardsForm from './rewards_form';
+import { Route, Link } from 'react-router-dom';
+import { merge, values } from 'lodash';
 
 class ProjectForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      formType: "basics",
       title: "",
       description: "",
       end_date: "",
       funding_goal: 0,
       details: "",
       category_id: 0,
+      rewardsNums: [],
       rewards: {
         1: {title: "", description: "", cost: 0, delivery_date: ""}
       }
     };
-
+    this.updateFormType = this.updateFormType.bind(this);
+    this.updateBasics = this.updateBasics.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateReward = this.updateReward.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCategories();
   }
 
-  update(field) {
-    return e => this.setState({[field]: e.currentTarget.value});
+  updateFormType(type) {
+    return () => {
+      this.setState({ formType: type });
+    };
+  }
+
+  updateBasics(field) {
+    return e => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  updateReward(rewardNum, field) {
+    if (this.state.rewardsNums.includes(rewardNum)) {
+      return e => {
+        this.setState({ rewards: { [rewardNum]: { [field]: e.currentTarget.value } } });
+      };
+    } else {
+      let newNum = this.state.rewardsNums.length + 1;
+      let rewardsNums = this.state.rewardsNums.slice();
+      rewardsNums.push(newNum);
+      return e => {
+        this.setState({rewardsNums: rewardsNums, rewards: { [newNum]: {title: "", description: "", cost: 0, delivery_date: ""}}});
+      };
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createProject(this.state)
+    const rewards_attributes = values(this.state.rewards);
+    const project = merge({}, this.state);
+    delete project.rewards;
+    project.rewards_attributes = rewards_attributes;
+
+    this.props.createProject(project)
       .then(data => this.props.history.push(`/projects/${data.id}`));
   }
 
-  updateReward(num) {
-    // this.setState somehow
-  }
-
   render() {
-    if (this.props.formType === "basics") {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Project image</label>
-            <input
-              type="file"
-              id="project_photo"
-              value=""
-            />
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Project title</label>
-            <input
-              type="text"
-              value={this.state.title}
-              onChange={this.update('title')}
-            />
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Project description</label>
-            <input
-              type="textarea"
-              value={this.state.description}
-              onChange={this.update('description')}
-            />
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Category</label>
-            <select
-              value={this.state.category_id}
-              onChange={this.update('category_id')}>
-              <option disabled="true">Select a category</option>
-              {this.props.categories.map(category => {
-                return <option value={category.id} key={category.id}>{category.name}</option>;
-              })}
-            </select>
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Project details</label>
-            <input
-              type="textarea"
-              value={this.state.details}
-              onChange={this.update('details')}
-            />
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">End on date</label>
-            <input
-              type="date"
-              value={this.state.end_date}
-              onChange={this.update('end_date')}
-            />
-          </div>
-          <div className="project-basics-field">
-            <label className="project-basics-label">Funding goal</label>
-            <input
-              type="number"
-              value={this.state.funding_goal}
-              placeholder="$ 0"
-              onChange={this.update('funding_goal')}
-            />
-          </div>
-          <button className="project-form-button">Create project</button>
-        </form>
-      );
-    } else {
-      // <RewardForm updateReward={ this.updateReward.bind(this, rewardNumber) } />
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <div className="reward-form-container">
-            <label className="reward-number">Reward #1
-              <label className="reward-form-label">Title</label>
-              <input
-                type="text"
-                value={this.state.rewards[1].title}
-                onChange={this.update(this.state.rewards[1].title)}
-                />
-              <label className="reward-form-label">Pledge amount</label>
-              <input
-                type="number"
-                value={this.state.rewards[1].cost}
-                onChange={this.update(this.state.rewards[1].cost)}
-                placeholder="$ 0"
-                />
-              <label className="reward-form-label">Description</label>
-              <input
-                type="text"
-                value={this.state.rewards[1].description}
-                onChange={this.update(this.state.rewards[1].description)}
-                />
-              <label className="reward-form-label">Estimated delivery</label>
-              <input
-                type="date"
-                value={this.state.rewards[1].delivery_date}
-                onChange={this.update(this.state.rewards[1].delivery_date)}
-                />
-            </label>
-            <button className="project-form-button">Create project</button>
-          </div>
-        </form>
-      );
-    }
+    return (
+      <section className="project-form">
+        <div className="project-form-nav">
+          <button onClick={this.updateFormType("basics")}>Basics</button>
+          <button onClick={this.updateFormType("rewards")}>Rewards</button>
+        </div>
+        <BasicsFormContainer formType={this.state.formType} updateBasics={this.updateBasics} state={this.state} />
+        <RewardsForm formType={this.state.formType} updateReward={this.updateReward} state={this.state} />
+      </section>
+    );
   }
 }
 

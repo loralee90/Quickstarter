@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import ProjectForm from './project_form';
+import BasicsForm from './basics_form';
 import { selectAllCategories } from '../../reducers/selectors';
-import createProject from '../../actions/project_actions';
-import { withRouter } from 'react-router-dom';
+import { createProject } from '../../actions/project_actions';
 import { fetchCategories } from '../../actions/category_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
+
   return { categories: selectAllCategories(state) };
 };
 
@@ -16,6 +17,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(ProjectForm)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BasicsForm));
