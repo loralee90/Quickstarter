@@ -17,7 +17,7 @@ class RewardsForm extends React.Component {
   render() {
     if (this.props.formType === "rewards") {
       return (
-        <section className="reward-form-container">
+        <section className="rewards-form-container">
           <div className="rewards-form-copy">
             <h1>Add rewards!</h1>
             <p>Invite backers to be a part of the creative experience by offering

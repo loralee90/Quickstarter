@@ -24,7 +24,7 @@ class Project < ApplicationRecord
 
   belongs_to :category
 
-  has_many :rewards
+  has_many :rewards, inverse_of: :project
   has_many :pledges, as: :pledgeable
   has_many :reward_pledges, through: :rewards, source: :pledges
 

@@ -1,15 +1,108 @@
-.project-form-page {
+.project-form {
   height: 100%;
   display: flex;
-  width: 100%;
+  padding-top: 42px;
+  padding-bottom: 42px;
+  height: 1687px;
+  // width: 100%;
+  flex-direction: column;
+  background-color: $sand;
 }
 
-.project-form form {
+.project-form-nav {
+  display: flex;
+  justify-content: center;
+  // margin-top: 5%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.project-form-nav li {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  // padding: 20px;
+  background-color: white;
+  border-top: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+}
+
+.project-form-nav li:hover,
+.project-form-nav li:focus {
+  background-color: $white-blue;
+}
+
+.fa-check-circle {
+  position: relative;
+  margin-top: 3%;
+  color: #CECBC7;
+}
+
+.project-form-nav button {
+  background-color: white;
+  color: $dark-blue;
   height: 100%;
-  width: 100%;
-  color: $green;
+  padding: 20px;
 }
 
-.project-form-page input {
-  border: 1px solid black;
+.basics-button {
+  border-left: 1px solid $light-gray;
+}
+
+.project-form-nav button:hover,
+.project-form-nav button:focus {
+  color: $blue;
+  background-color: $white-blue;
+}
+
+.basics-form-container,
+.rewards-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $dark-gray;
+}
+
+.basics-form-copy,
+.rewards-form-copy {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px;
+}
+
+.basics-form-copy h1,
+.rewards-form-copy h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.basics-form-copy p,
+.rewards-form-copy p {
+  font-size: 22px;
+  text-align: center;
+}
+
+.basics-form-container form,
+.rewards-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+  border-radius: 2px;
+  padding: 18px 12px;
+}
+
+.basics-form-container button,
+.rewards-form-container button {
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 14px;
+  // width: 90px;
 }

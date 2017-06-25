@@ -1,0 +1,46 @@
+.project-basics-field {
+  display: flex;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+  padding: 4px;
+  // justify-content: space-between;
+  // position: relative;
+  margin-bottom: 18px;
+}
+
+.project-basics-label {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 5px 10px 10px;
+  position: relative;
+  box-sizing: border-box;
+  width: 163px;
+}
+
+.project-basics-field input,
+.project-basics-field select,
+.project-basics-field textarea {
+  // position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid $light-gray;
+  color: #020621;
+  font-size: 14px;
+  width: 449px;
+  resize: none;
+}
+
+.project-basics-field select {
+  font-family: inherit;
+  // background: #FFF url(/assets/expand-arrow-icon) no-repeat 422px 14px;
+  padding: 10px 9px 10px 7px;
+}
+
+.project-basics-field input:focus,
+.project-basics-field select:focus,
+.project-basics-field textarea:focus {
+  border: 1px solid $blue;
+  resize: none;
+}

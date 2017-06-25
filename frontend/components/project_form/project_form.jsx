@@ -61,7 +61,7 @@ class ProjectForm extends React.Component {
     delete project.rewards;
     delete project.formType;
     delete project.rewardsNums;
-    project.rewards_attributes = rewards_attributes;
+    project.rewards_attributes = JSON.stringify(rewards_attributes);
 
     this.props.createProject(project)
       .then(data => this.props.history.push(`/projects/${data.id}`));
@@ -70,10 +70,20 @@ class ProjectForm extends React.Component {
   render() {
     return (
       <section className="project-form">
-        <div className="project-form-nav">
-          <button onClick={this.updateFormType("basics")}>Basics</button>
-          <button onClick={this.updateFormType("rewards")}>Rewards</button>
-        </div>
+        <ul className="project-form-nav">
+          <li className="basics-button">
+            <button onClick={this.updateFormType("basics")}>
+              <i className="fa fa-check-circle"></i>
+              &nbsp;&nbsp; Basics
+            </button>
+          </li>
+          <li className="rewards-button">
+            <button onClick={this.updateFormType("rewards")}>
+              <i className="fa fa-check-circle"></i>
+              &nbsp;&nbsp; Rewards
+            </button>
+          </li>
+        </ul>
         <BasicsForm categories={this.props.categories} handleSubmit={this.handleSubmit} formType={this.state.formType} updateBasics={this.updateBasics} state={this.state} />
         <RewardsForm formType={this.state.formType} handleSubmit={this.handleSubmit} updateReward={this.updateReward} state={this.state} />
       </section>

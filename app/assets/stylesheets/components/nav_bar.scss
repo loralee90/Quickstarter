@@ -3,7 +3,7 @@
   justify-content: space-between;
   width: 100%;
   height: 70px;
-  font-size: 16px;
+  font-size: 14px;
   box-sizing: border-box;
   box-shadow: 0px 0.5px 13px 0.5px rgba(194,192,194,1);
   position: relative;
@@ -34,16 +34,6 @@
   display: flex;
 }
 
-// .left-nav > ul > li {
-//   margin-left: 21px;
-//   margin-right: 21px;
-// }
-//
-// .right-nav > ul > li{
-//   margin-right: 21px;
-//   margin-left: 21px;
-// }
-
 .dropbtn {
   margin-right: 0;
 }
@@ -56,7 +46,7 @@
 
 .nav-item:hover {
   height: 100%;
-  border-bottom: 3px solid $green;
+  border-bottom: 3px solid $neon-green;
 }
 
 .fa-search {
@@ -67,12 +57,12 @@
 .explore-link i {
   color: $green;
   position: relative;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .right-nav i {
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .right-nav i:hover {
@@ -89,7 +79,7 @@
 }
 
 .logo-starter {
-  color: $green;
+  color: $neon-green;
 }
 
 .nav-bar a {

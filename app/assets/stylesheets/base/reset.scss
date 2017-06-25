@@ -31,7 +31,8 @@ input[type="email"],
 input[type="text"],
 input[type="submit"],
 textarea,
-button {
+button,
+select {
   /*
   Get rid of native styling. Read more here:
   http://css-tricks.com/almanac/properties/a/appearance/
@@ -47,13 +48,14 @@ input[type="submit"] {
   background-color: $green;
   color: white;
   text-align: center;
-  margin: auto;
+  font-weight: bold;
+  // font-size: 16px;
 }
 
-button,
+button:hover,
 input[type="submit"]:hover {
 	background-color: $dark-green;
-  font-weight: 500px;
+  // font-weight: 500px;
 }
 
 /* Clearfix */
