@@ -5,36 +5,16 @@ import merge from 'lodash/merge';
 class RewardsForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   rewardsNums: [1],
-    //   rewards: {
-    //     1: {title: "", description: "", cost: 0, delivery_date: ""}
-    //   }
-    // };
-
-    // this.updateReward = this.updateReward.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
   }
 
   handleAdd(e) {
     e.preventDefault();
-    debugger;
     let rewardNum = this.props.state.rewardsNums.length + 1;
-    // let rewardsNums = this.state.rewardsNums.slice();
     this.props.updateReward(rewardNum);
-    // rewardsNums.push(newNum);
-    // return e => this.setState({rewardsNums: rewardsNums, rewards: { [newNum]: {title: "", description: "", cost: 0, delivery_date: ""}}});
   }
 
-  // updateReward(rewardNum, field) {
-  //   return e => {
-  //     this.setState({ rewards: { [rewardNum]: { [field]: e.currentTarget.value } } });
-  //     this.props.updateReward(rewardNum, field);
-  //   };
-  // }
-
   render() {
-    debugger;
     if (this.props.formType === "rewards") {
       return (
         <section className="reward-form-container">
@@ -47,12 +27,12 @@ class RewardsForm extends React.Component {
           <ul className="rewards-forms">
             {this.props.state.rewardsNums.map(
               num => <RewardsFormItem key={num} rewardNum={num} updateReward={this.props.updateReward} state={this.props.state} />
-          )}
-        </ul>
-        <button onClick={this.handleAdd} className="add-reward-button">+ Add a new reward</button>
-        <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
-      </section>
-    );
+            )}
+          </ul>
+          <button onClick={this.handleAdd} className="add-reward-button">+ Add a new reward</button>
+          <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
+        </section>
+      );
     } else {
     return <p></p>;
     }

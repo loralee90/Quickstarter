@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ProjectForm from './project_form';
 import { selectAllCategories } from '../../reducers/selectors';
-import createProject from '../../actions/project_actions';
+import { createProject } from '../../actions/project_actions';
 import { withRouter } from 'react-router-dom';
 import { fetchCategories } from '../../actions/category_actions';
 

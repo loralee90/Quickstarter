@@ -5,47 +5,7 @@ import { values, merge } from 'lodash';
 class BasicsForm extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.props.state = {
-    //   title: "",
-    //   description: "",
-    //   end_date: "",
-    //   funding_goal: 0,
-    //   details: "",
-    //   category_id: 0,
-    //   rewards: {
-    //     1: {title: "", description: "", cost: 0, delivery_date: ""}
-    //   }
-    // };
-
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.updateReward = this.updateReward.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.props.fetchCategories();
-  // }
-
-  // update(field) {
-  //   return e => this.setState({[field]: e.currentTarget.value});
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   const rewards_attributes = values(this.state.rewards);
-  //   const project = merge({}, this.state);
-  //   delete project.rewards;
-  //   project.rewards_attributes = rewards_attributes;
-  //
-  //   this.props.createProject(project)
-  //     .then(data => this.props.history.push(`/projects/${data.id}`));
-  // }
-
-  // updateReward(rewardNum, field) {
-  //   return e => {
-  //     this.setState({ rewards: { [rewardNum]: { [field]: e.currentTarget.value } } });
-  //   };
-  // }
 
   render() {
     if (this.props.formType === "basics") {
@@ -111,7 +71,7 @@ class BasicsForm extends React.Component {
               onChange={this.props.updateBasics('funding_goal')}
             />
           </div>
-          <button className="save-project-button">Save project</button>
+          <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
         </form>
       );
     } else {
