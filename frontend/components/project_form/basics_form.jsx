@@ -79,13 +79,13 @@ class BasicsForm extends React.Component {
                 onChange={this.props.updateBasics('funding_goal')}
                 />
             </div>
-            <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
           </form>
         </section>
       );
     } else {
       return <p></p>;
     }
+    // <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
   }
 }
 

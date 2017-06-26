@@ -25,6 +25,8 @@ class ProjectForm extends React.Component {
     this.updateBasics = this.updateBasics.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateReward = this.updateReward.bind(this);
+    this.renderBasicsButton = this.renderBasicsButton.bind(this);
+    this.renderRewardsButton = this.renderRewardsButton.bind(this);
   }
 
   componentDidMount() {
@@ -67,21 +69,51 @@ class ProjectForm extends React.Component {
       .then(data => this.props.history.push(`/projects/${data.id}`));
   }
 
+  renderBasicsButton() {
+    if (this.state.formType === "basics") {
+      return (
+        <button className="active-button" onClick={this.updateFormType("basics")}>
+          <i className="fa fa-check-circle"></i>
+          &nbsp;&nbsp; Basics
+        </button>
+      );
+    } else {
+      return (
+        <button className="inactive-button" onClick={this.updateFormType("basics")}>
+          <i className="fa fa-check-circle"></i>
+          &nbsp;&nbsp; Basics
+        </button>
+      );
+    }
+  }
+
+  renderRewardsButton() {
+    if (this.state.formType === "rewards") {
+      return (
+        <button className="active-button" onClick={this.updateFormType("rewards")}>
+          <i className="fa fa-check-circle"></i>
+          &nbsp;&nbsp; Rewards
+        </button>
+      );
+    } else {
+      return (
+        <button className="inactive-button" onClick={this.updateFormType("rewards")}>
+          <i className="fa fa-check-circle"></i>
+          &nbsp;&nbsp; Rewards
+        </button>
+      );
+    }
+  }
+
   render() {
     return (
       <section className="project-form">
         <ul className="project-form-nav">
           <li className="basics-button">
-            <button onClick={this.updateFormType("basics")}>
-              <i className="fa fa-check-circle"></i>
-              &nbsp;&nbsp; Basics
-            </button>
+            {this.renderBasicsButton()}
           </li>
           <li className="rewards-button">
-            <button onClick={this.updateFormType("rewards")}>
-              <i className="fa fa-check-circle"></i>
-              &nbsp;&nbsp; Rewards
-            </button>
+            {this.renderRewardsButton()}
           </li>
         </ul>
         <BasicsForm categories={this.props.categories} handleSubmit={this.handleSubmit} formType={this.state.formType} updateBasics={this.updateBasics} state={this.state} />

@@ -28,10 +28,15 @@
   border-right: 1px solid $light-gray;
 }
 
-.project-form-nav li:hover,
-.project-form-nav li:focus {
-  background-color: $white-blue;
+.basics-button {
+  border-left: 1px solid $light-gray;
 }
+
+// .project-form-nav li:hover,
+// .project-form-nav li:focus {
+//   background-color: $white-blue;
+//   color: $blue;
+// }
 
 .fa-check-circle {
   position: relative;
@@ -39,22 +44,36 @@
   color: #CECBC7;
 }
 
-.project-form-nav button {
+.inactive-button {
   background-color: white;
   color: $dark-blue;
   height: 100%;
   padding: 20px;
 }
 
-.basics-button {
-  border-left: 1px solid $light-gray;
+.active-button {
+  color: $blue;
+  background-color: $white-blue;
+  height: 100%;
+  padding: 20px;
 }
 
-.project-form-nav button:hover,
+.project-form-nav button:hover{
+  color: $blue;
+  background-color: white;
+}
+
 .project-form-nav button:focus {
   color: $blue;
   background-color: $white-blue;
 }
+
+// .active-basics-button {
+//   color: $blue;
+//   background-color: $white-blue;
+//   height: 100%;
+//   padding: 20px;
+// }
 
 .basics-form-container,
 .rewards-form-container {
