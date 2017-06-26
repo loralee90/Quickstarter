@@ -24,7 +24,7 @@ class NavBar extends React.Component {
   }
 
   profileIcon() {
-    if (this.props.currentUser && !this.props.currentUser.image_url) {
+    if (this.props.currentUser && !this.props.currentUser.avatar) {
       return (
         <li onClick={this.toggleDropdown} className="dropbtn">
           <img src="assets/quickstarter_avatar" alt="User avatar"></img>

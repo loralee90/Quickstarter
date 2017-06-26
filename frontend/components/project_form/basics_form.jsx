@@ -26,7 +26,9 @@ class BasicsForm extends React.Component {
                 type="file"
                 id="project_photo"
                 value=""
+                onChange={this.props.updateFile}
                 />
+              <img src={this.props.state.imageUrl} />
             </div>
             <div className="project-basics-field">
               <label className="project-basics-label">Project title</label>

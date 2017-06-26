@@ -1,6 +1,7 @@
 json.project do
   json.extract! @project, :id, :title, :description, :end_date, :funding_goal, :details, :category_id, :creator_id, :total_pledge_amount
   json.reward_ids @project.rewards.pluck(:id)
+  json.image_url asset_path(@project.image.url) 
 end
 
 json.rewards do

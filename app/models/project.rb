@@ -17,6 +17,9 @@
 class Project < ApplicationRecord
   validates :title, :description, :end_date, :funding_goal, :creator_id, :category_id, presence: true
 
+  has_attached_file :image, default_url: "quickstarter_avatar.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  
   belongs_to :creator,
     class_name: :User,
     primary_key: :id,

@@ -15,19 +15,23 @@ export const fetchProject = id => {
   });
 };
 
-export const createProject = project => {
+export const createProject = formData => {
   return $.ajax({
     method: 'POST',
     url: '/api/projects',
-    data: {project}
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 
-export const updateProject = project => {
+export const updateProject = formData => {
   return $.ajax({
     method: 'PATCH',
     url: '/api/projects/:id',
-    data: {project}
+    contentType: false,
+    processData: false,
+    data: formData
   });
 };
 

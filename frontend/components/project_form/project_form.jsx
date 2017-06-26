@@ -19,7 +19,9 @@ class ProjectForm extends React.Component {
       rewardsNums: [1],
       rewards: {
         1: {title: "", description: "", cost: 0, delivery_date: ""}
-      }
+      },
+      imageFile: null,
+      imageUrl: null
     };
     this.updateFormType = this.updateFormType.bind(this);
     this.updateBasics = this.updateBasics.bind(this);
@@ -28,6 +30,7 @@ class ProjectForm extends React.Component {
     this.renderBasicsButton = this.renderBasicsButton.bind(this);
     this.renderRewardsButton = this.renderRewardsButton.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   componentDidMount() {
@@ -63,14 +66,36 @@ class ProjectForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const rewards_attributes = values(this.state.rewards);
-    const project = merge({}, this.state);
-    delete project.rewards;
-    delete project.formType;
-    delete project.rewardsNums;
+    const formData = new FormData();
+    formData.append("project[title]", this.state.title);
+    formData.append("project[description]", this.state.description);
+    formData.append("project[end_date]", this.state.end_date);
+    formData.append("project[funding_goal]", this.state.funding_goal);
+    formData.append("project[details]", this.state.details);
+    formData.append("project[category_id]", this.state.category_id);
+    formData.append("project[image]", this.state.imageFile);
+    formData.append("project[rewards_attributes]", values(this.state.rewards));
 
-    this.props.createProject(project)
+    // const rewards_attributes = values(this.state.rewards);
+    // const project = merge({}, this.state);
+    // delete project.rewards;
+    // delete project.formType;
+    // delete project.rewardsNums;
+
+    this.props.createProject(formData)
       .then(data => this.props.history.push(`/projects/${data.id}`));
+  }
+
+  updateFile(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      this.setState({ imageFile: file, imageUrl: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   renderBasicsButton() {
@@ -141,6 +166,7 @@ class ProjectForm extends React.Component {
           updateBasics={this.updateBasics}
           state={this.state}
           renderErrors={this.renderErrors}
+          updateFile={this.updateFile}
         />
         <RewardsForm
           formType={this.state.formType}
