@@ -28,13 +28,16 @@ class RewardsForm extends React.Component {
             {this.props.state.rewardsNums.map(
               num => <RewardsFormItem key={num} rewardNum={num} updateReward={this.props.updateReward} state={this.props.state} />
             )}
+            <button onClick={this.handleAdd} className="add-reward-button">
+              <i className="fa fa-plus"></i>&nbsp;&nbsp;
+              Add a new reward
+            </button>
+            <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
           </ul>
-          <button onClick={this.handleAdd} className="add-reward-button">+ Add a new reward</button>
-          <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
         </section>
       );
     } else {
-    return <p></p>;
+      return <p></p>;
     }
   }
 }

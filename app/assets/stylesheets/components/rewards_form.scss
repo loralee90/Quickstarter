@@ -1,0 +1,86 @@
+.rewards-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #DCDEDD;
+  border-radius: 2px;
+  padding: 18px 12px;
+}
+
+.rewards-form-item {
+  display: flex;
+  background-color: #F8F9FD;
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 18px;
+  color: #020621;
+}
+
+.reward-number {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 5px 10px 10px;
+  position: relative;
+  box-sizing: border-box;
+  width: 163px;
+}
+
+.rewards-form-item form {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $light-gray;
+  border-left: 1px solid $light-gray;
+  border-right: 1px solid $light-gray;
+  border-radius: 2px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.project-rewards-field {
+  display: flex;
+  border-bottom: 1px solid $light-gray;
+}
+
+.reward-form-label {
+  padding: 10px 5px 10px 10px;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 115px;
+}
+
+.project-rewards-field input {
+  padding: 10px;
+  box-sizing: border-box;
+  color: #020621;
+  font-size: 14px;
+  width: 333px;
+  resize: none;
+  border-left: 1px solid $light-gray;
+}
+
+.project-rewards-field input:focus {
+  border: 1px solid $blue;
+  resize: none;
+}
+
+.add-reward-button {
+  display: flex;
+  background-color: white;
+  color: #020621;
+  font-weight: normal;
+  font-size: 14px;
+  border: 1px dashed #E6E4E2;
+  display: inline-block;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 18px;
+}
+
+.add-reward-button:hover {
+  color: $blue;
+  background-color: #F8F9FD;
+}

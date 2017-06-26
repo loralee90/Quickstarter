@@ -2,8 +2,8 @@
   height: 100%;
   display: flex;
   padding-top: 42px;
-  padding-bottom: 42px;
-  height: 1687px;
+  padding-bottom: 50px;
+  height: 100%;
   // width: 100%;
   flex-direction: column;
   background-color: $sand;
@@ -85,19 +85,7 @@
   text-align: center;
 }
 
-.basics-form-container form,
-.rewards-form-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #DCDEDD;
-  border-radius: 2px;
-  padding: 18px 12px;
-}
-
-.basics-form-container button,
-.rewards-form-container button {
+.save-project-button {
   border-radius: 6px;
   padding: 10px 20px;
   display: inline-block;
