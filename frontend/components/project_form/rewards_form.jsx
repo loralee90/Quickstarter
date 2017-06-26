@@ -25,6 +25,7 @@ class RewardsForm extends React.Component {
               or a behind-the-scenes look into your process.</p>
           </div>
           <ul className="rewards-forms">
+            {this.props.renderErrors()}
             {this.props.state.rewardsNums.map(
               num => <RewardsFormItem key={num} rewardNum={num} updateReward={this.props.updateReward} state={this.props.state} />
             )}

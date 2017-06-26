@@ -2,7 +2,7 @@ import React from 'react';
 import BasicsForm from './basics_form';
 import RewardsForm from './rewards_form';
 import { Route, Link } from 'react-router-dom';
-import { merge } from 'lodash';
+import { merge, values } from 'lodash';
 
 class ProjectForm extends React.Component {
   constructor(props) {
@@ -27,10 +27,15 @@ class ProjectForm extends React.Component {
     this.updateReward = this.updateReward.bind(this);
     this.renderBasicsButton = this.renderBasicsButton.bind(this);
     this.renderRewardsButton = this.renderRewardsButton.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCategories();
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   updateFormType(type) {
@@ -58,12 +63,11 @@ class ProjectForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const rewards_attributes = this.state.rewardsNums.map(num => this.state.rewards[num]);
+    const rewards_attributes = values(this.state.rewards);
     const project = merge({}, this.state);
     delete project.rewards;
     delete project.formType;
     delete project.rewardsNums;
-    project.rewards_attributes = JSON.stringify(rewards_attributes);
 
     this.props.createProject(project)
       .then(data => this.props.history.push(`/projects/${data.id}`));
@@ -105,6 +109,20 @@ class ProjectForm extends React.Component {
     }
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return (
+        <ul className="project-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+	}
+
   render() {
     return (
       <section className="project-form">
@@ -116,8 +134,21 @@ class ProjectForm extends React.Component {
             {this.renderRewardsButton()}
           </li>
         </ul>
-        <BasicsForm categories={this.props.categories} handleSubmit={this.handleSubmit} formType={this.state.formType} updateBasics={this.updateBasics} state={this.state} />
-        <RewardsForm formType={this.state.formType} handleSubmit={this.handleSubmit} updateReward={this.updateReward} state={this.state} />
+        <BasicsForm
+          categories={this.props.categories}
+          handleSubmit={this.handleSubmit}
+          formType={this.state.formType}
+          updateBasics={this.updateBasics}
+          state={this.state}
+          renderErrors={this.renderErrors}
+        />
+        <RewardsForm
+          formType={this.state.formType}
+          handleSubmit={this.handleSubmit}
+          updateReward={this.updateReward}
+          state={this.state}
+          renderErrors={this.renderErrors}
+        />
       </section>
     );
   }

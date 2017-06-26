@@ -1,22 +1,7 @@
-.dropbtn {
-    background-color: #f7f7f9;
-    color: $dark-gray;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-right: 0;
-    position: relative;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #cdcfda;
-}
-
 .dropdown-content {
     position: absolute;
-    margin-top: 22.5%;
-    margin-left: -260%;
+    top: 101%;
+    right: 0;
     background-color: white;
     border: $lighter-gray;
     min-width: 160px;

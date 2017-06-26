@@ -18,10 +18,11 @@ class BasicsForm extends React.Component {
               project category.</p>
           </div>
           <form onSubmit={this.props.handleSubmit}>
+            {this.props.renderErrors()}
             <div className="project-basics-field">
               <label className="project-basics-label">Project image</label>
               <input
-                maxlength="60"
+                maxLength="60"
                 type="file"
                 id="project_photo"
                 value=""
@@ -79,13 +80,13 @@ class BasicsForm extends React.Component {
                 onChange={this.props.updateBasics('funding_goal')}
                 />
             </div>
+            <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
           </form>
         </section>
       );
     } else {
       return <p></p>;
     }
-    // <button onClick={this.props.handleSubmit} className="save-project-button">Save project</button>
   }
 }
 

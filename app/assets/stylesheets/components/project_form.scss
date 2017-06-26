@@ -102,6 +102,7 @@
 .rewards-form-copy p {
   font-size: 22px;
   text-align: center;
+  width: 630px;
 }
 
 .save-project-button {
@@ -112,4 +113,15 @@
   font-weight: bold;
   font-size: 14px;
   // width: 90px;
+}
+
+.project-errors {
+  color: #fd003b;
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+.project-errors li {
+  padding: 4px;
 }

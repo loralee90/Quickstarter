@@ -24,10 +24,10 @@ class NavBar extends React.Component {
   }
 
   profileIcon() {
-    if (this.props.currentUser) {
+    if (this.props.currentUser && !this.props.currentUser.image_url) {
       return (
         <li onClick={this.toggleDropdown} className="dropbtn">
-          Profile Icon
+          <img src="assets/quickstarter_avatar" alt="User avatar"></img>
           <DropdownContainer hiddenClass={this.state.showMe ? "" : "hidden"} />
         </li>
       );
@@ -72,7 +72,7 @@ class NavBar extends React.Component {
             <li className="explore-link nav-item hidden">
               <i className="fa fa-compass"></i>
               &nbsp;&nbsp;
-              <span>Explore</span>
+              <Link to="/categories">Explore</Link>
             </li>
             <li className="start-project-link nav-item">
               <Link to="/projects/new">Start a project</Link>

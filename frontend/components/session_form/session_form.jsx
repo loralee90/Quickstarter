@@ -21,9 +21,7 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount() {
-    // if (this.props.formType !== nextProps.formType) {
-      this.props.clearErrors();
-    // }
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -69,7 +67,7 @@ class SessionForm extends React.Component {
 	renderErrors() {
     if (this.props.errors) {
       return (
-        <ul className="errors">
+        <ul className="session-errors">
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
