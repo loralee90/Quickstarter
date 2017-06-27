@@ -54,6 +54,12 @@ class ProjectShow extends React.Component {
               <span className="show-backers">
                 {this.props.project.total_backers}
               </span>
+              <p>
+                backers
+              </p>
+              <span className="show-days">
+
+              </span>
             </div>
           </div>
         </div>

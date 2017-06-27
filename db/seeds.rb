@@ -12,7 +12,7 @@ User.create(name: "Lora Lee", email: "loraalee@gmail.com", password: "password")
 User.create(name: "Bob", email: "bob@bob.com", password: "password")
 
 Project.destroy_all
-Project.create(
+Project.create!(
   title: "Violini - The World's Smallest Violin",
   description: "World's smallest violin",
   end_date: DateTime.now,
@@ -21,7 +21,7 @@ Project.create(
   category_id: 1
 )
 
-Project.create(
+Project.create!(
   title: "Pegasus - The Flying Car",
   description: "A car that flies!",
   end_date: DateTime.now,
