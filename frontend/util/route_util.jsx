@@ -12,8 +12,19 @@ const Auth = ({component: Component, path, loggedIn}) => (
   )}/>
 );
 
+const ProjectCreate = ({component: Component, path, loggedIn}) => (
+  <Route path={path} render={(props) => (
+    !loggedIn ? (
+      <Redirect to="/login" />
+    ) : (
+      <Component {...props} />
+    )
+  )}/>
+);
+
 const mapStateToProps = state => {
   return {loggedIn: Boolean(state.session.currentUser)};
 };
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+export const ProjectCreateRoute = withRouter(connect(mapStateToProps, null)(ProjectCreate));

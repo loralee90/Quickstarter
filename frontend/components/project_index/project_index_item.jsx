@@ -7,7 +7,7 @@ class ProjectIndexItem extends React.Component {
     super(props);
     this.project = this.props.project;
     this.percent = (this.project.total_pledge_amount / this.project.funding_goal) * 100;
-
+    
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
   }
