@@ -37,4 +37,8 @@ class Project < ApplicationRecord
   def total_pledge_amount
     pledges.sum(:amount) + reward_pledges.sum(:amount)
   end
+
+  def total_backers
+    pledges.count + reward_pledges.count
+  end
 end

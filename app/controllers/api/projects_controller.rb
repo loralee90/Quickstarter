@@ -11,13 +11,7 @@ class Api::ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.new(project_params)
-  # rescue Paperclip::AdapterRegistry::NoHandlerError
-  #   project_params.delete(:image)
-  #   @project = current_user.projects.new(project_params)
-  #   render json: @project.errors.full_messages.push("Please attach an image."), status: 422
-  #   # end
-  #
-  #   render :show
+
     if @project.save
       render :show
     else

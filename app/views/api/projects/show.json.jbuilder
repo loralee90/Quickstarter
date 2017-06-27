@@ -2,6 +2,7 @@ json.project do
   json.partial! '/api/projects/project', project: @project
   json.extract! @project, :details
   json.reward_ids @project.rewards.pluck(:id)
+  json.backers @project.total_backers
 end
 
 json.rewards do
