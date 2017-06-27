@@ -34,7 +34,8 @@ Project.create!(
   end_date: DateTime.now,
   funding_goal: 1000,
   creator_id: users[0].id,
-  category_id: a.id
+  category_id: a.id,
+  image: File.open("app/assets/images/quickstarter_avatar.png")
 )
 
 Project.create!(
@@ -43,5 +44,6 @@ Project.create!(
   end_date: DateTime.now,
   funding_goal: 50000,
   creator_id: users[1].id,
-  category_id: b.id
+  category_id: b.id,
+  image: File.open("app/assets/images/quickstarter_avatar.png")
 )
