@@ -17,15 +17,15 @@ users = User.create!([
 # User.create(name: "Bob", email: "bob@bob.com", password: "password")
 
 Category.destroy_all
-a = Category.create(name: "Art")
-b = Category.create(name: "Crafts")
-Category.create(name: "Design")
-Category.create(name: "Fashion")
-Category.create(name: "Film & Video")
-Category.create(name: "Food")
-Category.create(name: "Music")
-Category.create(name: "Technology")
-Category.create(name: "Theater")
+a = Category.create!(name: "Art")
+b = Category.create!(name: "Crafts")
+Category.create!(name: "Design")
+Category.create!(name: "Fashion")
+Category.create!(name: "Film & Video")
+Category.create!(name: "Food")
+Category.create!(name: "Music")
+Category.create!(name: "Technology")
+Category.create!(name: "Theater")
 
 Project.destroy_all
 Project.create!(

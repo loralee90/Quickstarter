@@ -8,8 +8,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  
-  return { fetchProjects: () => dispatch(fetchProjects()) }
+  return { fetchProjects: () => dispatch(fetchProjects()) };
 };
 
 export default connect(

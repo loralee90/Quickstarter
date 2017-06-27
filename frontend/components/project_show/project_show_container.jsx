@@ -4,12 +4,17 @@ import ProjectShow from './project_show';
 import { fetchProject } from '../../actions/project_actions';
 import { selectAllProjects } from '../../reducers/selectors';
 
-const mapStateToProps = state => {
-  return { projects: selectAllProjects(state) };
+const mapStateToProps = (state, ownProps) => {
+  const project = state.projects[ownProps.match.params.id];
+  let rewards = [];
+  if (project && project.reward_ids) {
+    rewards = project.reward_ids.map(rewardId => state.rewards[rewardId]);
+  }
+  return { project, rewards };
 };
 
 const mapDispatchToProps = dispatch => {
-  return { fetchProject: () => dispatch(fetchProject()) };
+  return { fetchProject: (id) => dispatch(fetchProject(id)) };
 };
 
 export default withRouter(connect(

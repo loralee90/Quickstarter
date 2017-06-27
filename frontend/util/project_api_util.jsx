@@ -10,8 +10,7 @@ export const fetchProjects = () => {
 export const fetchProject = id => {
   return $.ajax({
     method: 'GET',
-    url: '/api/projects/:id',
-    data: id
+    url: `/api/projects/${id}`
   });
 };
 
@@ -38,7 +37,6 @@ export const updateProject = formData => {
 export const deleteProject = id => {
   return $.ajax({
     method: 'DELETE',
-    url: '/api/projects/:id',
-    data: id
+    url: `/api/projects/${id}`
   });
 };

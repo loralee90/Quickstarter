@@ -17,4 +17,8 @@ class Reward < ApplicationRecord
 
   belongs_to :project, inverse_of: :rewards
   has_many :pledges, as: :pledgeable
+
+  def total_backers
+    pledges.count
+  end
 end
