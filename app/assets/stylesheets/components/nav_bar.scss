@@ -69,17 +69,20 @@
 .logo-starter {
   font-family: "Baloo", cursive;
   font-size: 26px;
-  position: absolute;
+  position: relative;
+  right: 6%;
+  // margin: 0 auto;
+  // position: absolute;
   font-weight: bold;
 }
 
 .logo-quick {
-  left: 43.7%;
+  // left: 43.7%;
 }
 
 .logo-starter {
   color: $neon-green;
-  left: 48.9%;
+  // left: 48.9%;
 }
 
 .nav-bar a {

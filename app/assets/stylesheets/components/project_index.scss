@@ -1,0 +1,114 @@
+.projects-index-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.projects-index-content h2 {
+  font-weight: 400;
+  color: $dark-gray;
+  font-size: 24px;
+  // padding: 0 60px;
+  // width: 1245px;
+  // position: relative;
+  // left: 20;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  padding: 18px;
+  width: 389px;
+  height: 564px;
+}
+
+.project-image img {
+  height: 219px;
+}
+
+.project-outline {
+  border: 1px solid #DCDEDD;
+  box-shadow: 0 2px 6px -2px rgba(22,22,22,0.45);
+}
+
+.project-info {
+  padding: 24px 30px 30px 30px;
+}
+
+.project-category {
+  color: #626369;
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.project-category:hover {
+  color: #060F46;
+}
+
+.project-title-description a:hover {
+  color: #060F46;
+}
+
+.project-title-description {
+  font-size: 15px;
+  color: #95959E;
+  line-height: 25px;
+  text-overflow: ellipsis;
+  height: 72px;
+}
+
+.project-title-description a {
+  color: $dark-gray;
+}
+
+.creator-info {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.creator-info img {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+
+.by {
+  color: #95959E;
+}
+
+.creator-info p {
+  font-weight: 500;
+}
+
+.project-funding-stats {
+  padding-top: 12px;
+}
+
+.project-funding-stats div {
+  display: flex;
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.project-funding-stats div > span {
+  font-weight: 700;
+  color: #626369;
+}
+
+.project-funding-stats div > p {
+  font-weight: 400;
+  color: #95959E;
+}
+
+.progress-bar {
+  width: 100%;
+}

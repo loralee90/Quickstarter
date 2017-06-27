@@ -10,9 +10,14 @@ class ProjectIndex extends React.Component {
   render() {
     return (
       <section className="projects-index">
-        <ul>
-          {this.props.projects.map(project => <ProjectIndexItem key={project.id} project={project} />)}
-        </ul>
+        <div className="projects-index-content">
+          <h2>Featured Projects</h2>
+          <ul className="projects">
+            {this.props.projects.map(
+              project => <ProjectIndexItem key={project.id} project={project} />
+            )}
+          </ul>
+        </div>
       </section>
     );
   }

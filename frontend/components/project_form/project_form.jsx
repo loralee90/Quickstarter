@@ -76,12 +76,6 @@ class ProjectForm extends React.Component {
     formData.append("project[image]", this.state.imageFile);
     formData.append("project[rewards_attributes]", values(this.state.rewards));
 
-    // const rewards_attributes = values(this.state.rewards);
-    // const project = merge({}, this.state);
-    // delete project.rewards;
-    // delete project.formType;
-    // delete project.rewardsNums;
-
     this.props.createProject(formData)
       .then(data => this.props.history.push(`/projects/${data.id}`));
   }
