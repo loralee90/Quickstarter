@@ -79,9 +79,7 @@ class ProjectForm extends React.Component {
       formData.append("project[image]", this.state.imageFile);
     }
     this.props.createProject(formData)
-      .then(data => {
-        return this.props.history.push(`/projects/${data.project.id}`);}
-      );
+      .then(data => this.props.history.push(`/projects/${data.project.id}`));
   }
 
   updateFile(e) {
