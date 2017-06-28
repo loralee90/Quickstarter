@@ -11,27 +11,15 @@ class ProjectShow extends React.Component {
 
     this.state = {
       projectButtonShow: false,
-      pledges: {}
+      pledge: {
+        projectId: {
+          amount: 0,
+          pledgeable_type: "Project",
+          pledgeable_id: this.projectId,
+          backer_id: this.props.user.id
+        }
+      }
     };
-
-    this.state.pledges[this.projectId] = {
-      amount: 0,
-      pledgeable_type: "Project",
-      pledgeable_id: this.projectId,
-      backer_id: this.props.user.id
-    };
-
-    this.props.rewards.forEach(reward => {
-      this.state.pledges[reward.id] = {
-        amount: 0,
-        pledgeable_type: "Reward",
-        pledgeable_id: reward.id,
-        backer_id: this.props.user.id,
-        formShow: false
-      };
-    });
-
-    debugger;
 
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
@@ -54,26 +42,26 @@ class ProjectShow extends React.Component {
   }
 
   handleProjectPledgeClick(e) {
-    e.preventDefault();
-    this.setState({projectButtonShow: !this.state.projectButtonShow});
+    // e.preventDefault();
+    // this.setState({projectButtonShow: !this.state.projectButtonShow});
   }
 
   handleRewardPledgeClick(rewardId) {
-    return e => {
-      this.setState({ pledges: { [rewardId]: { formShow: !this.pledges[rewardId].formShow } } });
-    };
+    // return e => {
+    //   this.setState({ pledges: { [rewardId]: { formShow: !this.pledges[rewardId].formShow } } });
+    // };
   }
 
   handleRewardPledgeSubmit(rewardId) {
-    return e => {
-      delete this.state.pledges[rewardId].formShow;
-      this.props.createPledge(this.state.pledges[rewardId]);
-    };
+    // return e => {
+    //   delete this.state.pledges[rewardId].formShow;
+    //   this.props.createPledge(this.state.pledges[rewardId]);
+    // };
   }
 
   handleProjectPledgeSubmit(e) {
-    e.preventDefault();
-    this.props.createPledge(this.state.pledges[this.projectId]);
+    // e.preventDefault();
+    // this.props.createPledge(this.state.pledges[this.projectId]);
   }
 
   renderProgressLine() {
@@ -102,9 +90,9 @@ class ProjectShow extends React.Component {
   }
 
   renderProjectPledgeButton() {
-    if (this.state.formShow) {
+    if (this.state.projectButtonShow) {
       return (
-        <button onClick={this.handleProjectPledgeSubmit}>Continue</button>
+        <button>Continue</button>
       );
     } else {
       return null;
@@ -113,19 +101,15 @@ class ProjectShow extends React.Component {
 
   renderRewardListItems() {
     if (this.props.rewards) {
-      debugger;
+
       return (
         <div>
           {this.props.rewards.map(reward =>
-            <RewardListItem
-              handleRewardPledgeClick={this.handleRewardPledgeClick}
-              handleRewardPledgeSubmit={this.handleRewardPledgeSubmit}
-              state={this.state}
-              reward={reward}
-              formShow={this.state.pledges[reward.id].formShow} />
+            <RewardListItem reward={reward} />
           )}
         </div>
       );
+      // formShow={this.state.pledges[reward.id].formShow} />
     } else {
       return null;
     }
@@ -133,7 +117,7 @@ class ProjectShow extends React.Component {
 
   render() {
     if (this.props.project) {
-      debugger;
+
       return (
         <section className="project-show-container">
           <div className="project-show-header">
@@ -188,11 +172,12 @@ class ProjectShow extends React.Component {
               <li onClick={this.handleProjectPledgeClick}>
                 <h4>Make a pledge without a reward</h4>
                 <input
-                  type="number"
-                  value={this.state.pledges[this.projectId].amount} />
+                  type="number" />
                 {this.renderProjectPledgeButton()}
               </li>
-              {this.renderRewardListItems()}
+              {this.props.rewards.map(reward =>
+                <RewardListItem reward={reward} />
+              )}
             </ul>
           </div>
         </section>
