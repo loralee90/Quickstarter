@@ -11,24 +11,22 @@ class ProjectShow extends React.Component {
 
     this.state = {
       projectButtonShow: false,
-      pledge: {
-        projectId: {
-          amount: 0,
-          pledgeable_type: "Project",
-          pledgeable_id: this.projectId,
-          backer_id: this.props.user.id
-        }
+      [this.projectId]: {
+        amount: 0,
+        pledgeable_type: "Project",
+        pledgeable_id: this.projectId
       }
     };
 
+    if (this.props.user) {
+      this.state.backer_id = this.props.user.id;
+    }
+
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
-    this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
-    this.handleRewardPledgeClick = this.handleRewardPledgeClick.bind(this);
-    this.handleProjectPledgeSubmit = this.handleProjectPledgeSubmit.bind(this);
-    this.handleRewardPledgeSubmit = this.handleRewardPledgeSubmit.bind(this);
     this.renderProjectPledgeButton = this.renderProjectPledgeButton.bind(this);
-    this.renderRewardListItems = this.renderRewardListItems.bind(this);
+    this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -39,29 +37,6 @@ class ProjectShow extends React.Component {
     if (this.projectId !== newProps.match.params.id) {
       this.props.fetchProject(newProps.match.params.id);
     }
-  }
-
-  handleProjectPledgeClick(e) {
-    // e.preventDefault();
-    // this.setState({projectButtonShow: !this.state.projectButtonShow});
-  }
-
-  handleRewardPledgeClick(rewardId) {
-    // return e => {
-    //   this.setState({ pledges: { [rewardId]: { formShow: !this.pledges[rewardId].formShow } } });
-    // };
-  }
-
-  handleRewardPledgeSubmit(rewardId) {
-    // return e => {
-    //   delete this.state.pledges[rewardId].formShow;
-    //   this.props.createPledge(this.state.pledges[rewardId]);
-    // };
-  }
-
-  handleProjectPledgeSubmit(e) {
-    // e.preventDefault();
-    // this.props.createPledge(this.state.pledges[this.projectId]);
   }
 
   renderProgressLine() {
@@ -89,30 +64,34 @@ class ProjectShow extends React.Component {
     );
   }
 
+  handleProjectPledgeClick(e) {
+    e.preventDefault();
+    if (this.props.user) {
+      this.setState({projectButtonShow: true});
+    } else {
+      this.props.history.push('/login');
+    }
+  }
+
   renderProjectPledgeButton() {
     if (this.state.projectButtonShow) {
       return (
-        <button>Continue</button>
+        <button>Pledge</button>
       );
     } else {
       return null;
     }
   }
 
-  renderRewardListItems() {
-    if (this.props.rewards) {
+  update(field) {
+    return e => {
+      this.setState({ [this.projectId]: { amount: e.currentTarget.value } });
+    };
+  }
 
-      return (
-        <div>
-          {this.props.rewards.map(reward =>
-            <RewardListItem reward={reward} />
-          )}
-        </div>
-      );
-      // formShow={this.state.pledges[reward.id].formShow} />
-    } else {
-      return null;
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createPledge(this.state[this.projectId]);
   }
 
   render() {
@@ -171,12 +150,16 @@ class ProjectShow extends React.Component {
               <h3>Support this project</h3>
               <li onClick={this.handleProjectPledgeClick}>
                 <h4>Make a pledge without a reward</h4>
-                <input
-                  type="number" />
-                {this.renderProjectPledgeButton()}
+                <form onSubmit={this.handleSubmit}>
+                  <input
+                    type="number"
+                    value={this.state[this.projectId].amount}
+                    onChange={this.update()} />
+                  {this.renderProjectPledgeButton()}
+                </form>
               </li>
               {this.props.rewards.map(reward =>
-                <RewardListItem reward={reward} />
+                <RewardListItem key={reward.id} reward={reward} user={this.props.user} />
               )}
             </ul>
           </div>

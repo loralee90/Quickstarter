@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // position: relative;
 }
 
 .project-show-header {
   display: flex;
   width: 100%;
   flex-direction: column;
-  // padding: 60px;
   position: relative;
   background-color: #FBFBFA;
   align-items: center;
@@ -23,9 +21,6 @@
   position: relative;
   left: 0;
   width: 1235px;
-  // width: 100%;
-  // align-content: center;
-  // padding: 0 18px;
   box-sizing: border-box;
 }
 
@@ -34,10 +29,6 @@
   flex-direction: column;
   width: 15%;
   padding: 0 18px;
-  // position: relative;
-  // left: 0;
-  // padding-right: 50px;
-  // padding: 0 18px;
 }
 
 .show-creator-info img {
@@ -97,15 +88,12 @@
 }
 
 .rc-progress-line {
-  // position: absolute;
-  // top: 0;
   padding-bottom: 15px;
 }
 
 .show-pledge-amount,
 .show-backers,
 .show-days {
-  // padding-top: 18px;
   font-weight: 500;
   font-size: 25px;
   line-height: 32px;
@@ -127,7 +115,6 @@
   height: 48px;
   width: 100%;
   border-radius: 3px;
-  // padding: 10px 20px;
   font-weight: 500;
   font-size: 16px;
   box-shadow: inset 0px 0px 0px 1px #05AF3C;

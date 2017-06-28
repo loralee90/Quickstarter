@@ -4,7 +4,6 @@
   padding-top: 42px;
   padding-bottom: 150px;
   height: 100%;
-  // width: 100%;
   flex-direction: column;
   background-color: $sand;
 }
@@ -12,7 +11,6 @@
 .project-form-nav {
   display: flex;
   justify-content: center;
-  // margin-top: 5%;
   font-size: 14px;
   font-weight: bold;
 }
@@ -31,12 +29,6 @@
 .basics-button {
   border-left: 1px solid $light-gray;
 }
-
-// .project-form-nav li:hover,
-// .project-form-nav li:focus {
-//   background-color: $white-blue;
-//   color: $blue;
-// }
 
 .fa-check-circle {
   position: relative;
@@ -67,13 +59,6 @@
   color: $blue;
   background-color: $white-blue;
 }
-
-// .active-basics-button {
-//   color: $blue;
-//   background-color: $white-blue;
-//   height: 100%;
-//   padding: 20px;
-// }
 
 .basics-form-container,
 .rewards-form-container {

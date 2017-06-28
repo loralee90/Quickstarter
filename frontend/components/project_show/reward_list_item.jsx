@@ -1,31 +1,40 @@
 import React from 'react';
-// import RewardPledgeForm from './reward_pledge_form';
+import RewardPledgeForm from './reward_pledge_form';
 
 class RewardListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.reward = this.props.reward;
+    this.state = { formShow: false }
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    if (this.props.user) {
+      this.setState({formShow: true});
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
   render() {
+    let className;
+    if (this.state.formShow === true) {
+
+    }
     return (
-      <li key={this.reward.id} className="reward-list-item">
-        <h4>Pledge ${this.reward.cost} or more</h4>
-        <h5>{this.reward.title}</h5>
-        <p className="reward-description">{this.reward.description}</p>
+      <li onClick={this.handleClick} className="reward-list-item">
+        <h4>Pledge ${this.props.reward.cost} or more</h4>
+        <h5>{this.props.reward.title}</h5>
+        <p className="reward-description">{this.props.reward.description}</p>
         <span>estimated delivery</span>
-        <p className="delivery-date">{this.reward.delivery_date}</p>
-        <p className="reward-backers">{this.reward.total_backers} backers</p>
+        <p className="delivery-date">{this.props.reward.delivery_date}</p>
+        <p className="reward-backers">{this.props.reward.total_backers} backers</p>
+        <RewardPledgeForm formShow={this.state.formShow} reward={this.props.reward} user={this.props.user} />
       </li>
     );
   }
 }
-// formShow={this.props.state.pledges[this.reward.id].formShow} />
-// handleClick={this.props.handleClick}
-// handleRewardPledgeSubmit={this.props.handleRewardPledgeSubmit}
-// amount={this.props.state.pledges[this.reward.id].amount}
 
 export default RewardListItem;
-
-// <RewardPledgeForm
-//   reward={this.reward} />
