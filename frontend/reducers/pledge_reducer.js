@@ -8,8 +8,7 @@ const PledgeReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_PLEDGE:
-      newState[action.pledge.id] = action.pledge;
-      return newState;
+      return action.pledge;
     default:
       return state;
   }

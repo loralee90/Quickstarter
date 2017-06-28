@@ -27,22 +27,18 @@ class RewardPledgeForm extends React.Component {
   }
 
   render() {
-    if (this.props.formShow) {
-      return (
-        <form className="reward-pledge-form" onSubmit={this.handleSubmit}>
-          <span>pledge amount</span>
-          <input
-            type="number"
-            value={this.state.amount}
-            onChange={this.update()}
-            placeholder="$0"
-            />
-          <input type="submit" value="Pledge" />
-        </form>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <form className="reward-pledge-form" onSubmit={this.handleSubmit}>
+        <span>pledge amount</span>
+        <input
+          type="number"
+          value={this.state.amount}
+          onChange={this.update()}
+          placeholder="$0"
+          />
+        <button onClick={this.handleSubmit}>Pledge</button>
+      </form>
+    );
   }
 
 

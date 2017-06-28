@@ -236,7 +236,7 @@
   color: #80809E;
 }
 
-.project-reward-list input[type=submit] {
+.project-reward-list button {
   margin-top: 10px;
   height: 38px;
   width: 100%;
@@ -256,8 +256,8 @@
   color: $dark-blue;
 }
 
-.reward-pledge-form input {
-  margin-top: 5px;
+.reward-pledge-form button {
+  margin-top: 10px;
 }
 
 .reward-pledge-form {

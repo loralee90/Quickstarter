@@ -29,7 +29,11 @@ class RewardListItem extends React.Component {
           <span>estimated delivery</span>
           <p className="delivery-date">{this.props.reward.delivery_date}</p>
           <p className="reward-backers">{this.props.reward.total_backers} backers</p>
-          <RewardPledgeForm formShow={this.state.formShow} reward={this.props.reward} user={this.props.user} />
+          <RewardPledgeForm
+            createPledge={this.props.createPledge}
+            formShow={this.state.formShow}
+            reward={this.props.reward}
+            user={this.props.user} />
         </li>
       );
     } else {
@@ -41,11 +45,6 @@ class RewardListItem extends React.Component {
           <span>estimated delivery</span>
           <p className="delivery-date">{this.props.reward.delivery_date}</p>
           <p className="reward-backers">{this.props.reward.total_backers} backers</p>
-          <RewardPledgeForm
-            formShow={this.state.formShow}
-            reward={this.props.reward}
-            user={this.props.user}
-            createPledge={this.props.createPledge} />
         </li>
       );
     }

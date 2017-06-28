@@ -2,6 +2,7 @@ import React from 'react';
 import { Line } from 'rc-progress';
 import RewardListItem from './reward_list_item';
 import ProjectPledgeButton from './project_pledge_button';
+import merge from 'lodash/merge';
 
 class ProjectShow extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class ProjectShow extends React.Component {
     };
 
     if (this.props.user) {
-      this.state.backer_id = this.props.user.id;
+      this.state[this.projectId].backer_id = this.props.user.id;
     }
 
     this.renderProgressLine = this.renderProgressLine.bind(this);
@@ -30,23 +31,26 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchProject(this.projectId);
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
     if (this.projectId !== newProps.match.params.id) {
       this.props.fetchProject(newProps.match.params.id);
     }
   }
 
   renderProgressLine() {
-    const percent = (this.props.project.total_pledge_amount / this.props.project.funding_goal) * 100;
+    let percent;
+    if (this.props.project.total_pledge_amount >= this.props.project.funding_goal) {
+      percent = 100;
+    } else {
+      percent = (this.props.project.total_pledge_amount / this.props.project.funding_goal) * 100;
+    }
     return (
       <Line
         className="progress-bar"
-        percent={90}
+        percent={percent}
         strokeWidth="1"
         strokeColor="#2BDE73"
         trailColor="#E6E7E8"
@@ -75,6 +79,12 @@ class ProjectShow extends React.Component {
     }
   }
 
+  handleSubmit(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.props.createPledge(this.state[this.projectId]);
+  }
+
   renderProjectPledgeItem() {
     if (this.state.projectButtonShow) {
       return (
@@ -86,7 +96,7 @@ class ProjectShow extends React.Component {
               value={this.state[this.projectId].amount}
               onChange={this.update()}
               placeholder="$0" />
-            <input type="submit" value="Pledge" />
+            <button onClick={this.handleSubmit}>Pledge</button>
           </form>
         </li>
       );
@@ -108,14 +118,18 @@ class ProjectShow extends React.Component {
 
   update() {
     return e => {
-      this.setState({ [this.projectId]: { amount: e.currentTarget.value } });
+      const newPledge = merge({}, this.state[this.projectId], { amount: e.currentTarget.value });
+      this.setState({ [this.projectId]: newPledge});
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.createPledge(this.state[this.projectId]);
-  }
+  // let rewardsNums = this.state.rewardsNums.slice();
+  // rewardsNums.push(rewardNum);
+  // const newRewards = merge({}, this.state.rewards, {[rewardNum]: {title: "", description: "", cost: 0, delivery_date: ""}});
+  // this.setState({rewardsNums, rewards: newRewards});
+  // renderEditDeleteButtons() {
+  //   if (this.props.user.id === this.props.project)
+  // }
 
   render() {
     if (this.props.project) {
