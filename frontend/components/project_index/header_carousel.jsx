@@ -9,7 +9,7 @@ const Decorators = [{
           onClick={this.props.previousSlide}>
           Previous Slide
         </button>
-      )
+      );
     }
   }),
   position: 'CenterLeft',
@@ -28,7 +28,5 @@ const HeaderCarousel = () => {
     </Carousel>
   );
 };
-// <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/010/original/500_days.jpg?1498574377" />
-// <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/010/original/500_days.jpg?1498574377" />
 
 export default HeaderCarousel;

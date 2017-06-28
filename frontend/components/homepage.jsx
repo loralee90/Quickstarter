@@ -1,9 +1,9 @@
 import React from 'react';
-import ProjectIndexItem from './project_index_item';
-import HeaderCarousel from './header_carousel';
+import ProjectIndexItem from './project_index/project_index_item';
+import HeaderCarousel from './project_index/header_carousel';
 import { Route } from 'react-router-dom';
 
-class ProjectIndex extends React.Component {
+class Homepage extends React.Component {
   componentDidMount() {
     this.props.fetchProjects();
   }
@@ -11,6 +11,7 @@ class ProjectIndex extends React.Component {
   render() {
     return (
       <section className="projects-index">
+        <HeaderCarousel />
         <div className="projects-index-content">
           <h2>Featured Projects</h2>
           <ul className="projects">
@@ -22,7 +23,6 @@ class ProjectIndex extends React.Component {
       </section>
     );
   }
-  // <HeaderCarousel />
 }
 
-export default ProjectIndex;
+export default Homepage;
