@@ -10,6 +10,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def create
+    params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
     @project = current_user.projects.new(project_params)
 
     if @project.save

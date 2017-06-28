@@ -1,12 +1,19 @@
 import React from 'react';
 import { Line } from 'rc-progress';
+import RewardListItem from './reward_list_item';
 
 class ProjectShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      
+    }
+
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
+    this.handleRewardPledgeClick = this.handleRewardPledgeClick.bind(this);
   }
 
   componentDidMount() {
@@ -15,11 +22,16 @@ class ProjectShow extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
-      this.props.fetchProject(this.props.match.params.id);
+      this.props.fetchProject(newProps.match.params.id);
     }
   }
 
-  handleClick(e) {
+  handleProjectPledgeClick(e) {
+    e.preventDefault();
+
+  }
+
+  handleRewardPledgeClick(e) {
     e.preventDefault();
   }
 
@@ -28,7 +40,7 @@ class ProjectShow extends React.Component {
     return (
       <Line
         className="progress-bar"
-        percent={percent}
+        percent={90}
         strokeWidth="1"
         strokeColor="#2BDE73"
         trailColor="#E6E7E8"
@@ -56,6 +68,10 @@ class ProjectShow extends React.Component {
             <div className="show-title-author">
               <div className="show-creator-info">
                 <img src={this.props.project.creator_image_url} />
+                <div>
+                  <p>By</p>&nbsp;
+                  <span>{this.props.project.creator_name}</span>
+                </div>
               </div>
               <div className="show-title-description">
                 <h2 className="show-title">
@@ -71,7 +87,7 @@ class ProjectShow extends React.Component {
               <div className="show-stats">
                 {this.renderProgressLine()}
                 <span className="show-pledge-amount">
-                  {this.props.project.total_pledge_amount}
+                  ${this.props.project.total_pledge_amount}
                 </span>
                 <p>
                   pledged of ${this.props.project.funding_goal} goal
@@ -91,7 +107,7 @@ class ProjectShow extends React.Component {
             </div>
           </div>
           <div className="project-show-content">
-            <div className="show-description">
+            <div className="show-detail">
               <h3>About this project</h3>
               <p>{this.props.project.details}</p>
             </div>

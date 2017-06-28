@@ -73,13 +73,15 @@ class ProjectForm extends React.Component {
     formData.append("project[funding_goal]", this.state.funding_goal);
     formData.append("project[details]", this.state.details);
     formData.append("project[category_id]", this.state.category_id);
-    formData.append("project[rewards_attributes]", values(this.state.rewards));
+    formData.append("project[rewards_attributes]", JSON.stringify(values(this.state.rewards)));
 
     if (this.state.imageFile) {
       formData.append("project[image]", this.state.imageFile);
     }
     this.props.createProject(formData)
-      .then(data => this.props.history.push(`/projects/${data.project.id}`));
+      .then(data => {
+        return this.props.history.push(`/projects/${data.project.id}`);}
+      );
   }
 
   updateFile(e) {

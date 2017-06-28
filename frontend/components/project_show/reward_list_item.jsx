@@ -2,11 +2,11 @@ import React from 'react';
 
 const RewardListItem = ({reward}) => {
   return (
-    <li className="reward-list-item">
+    <li key={reward.id} className="reward-list-item">
       <h4>Pledge ${reward.cost} or more</h4>
       <h5>{reward.title}</h5>
-      <p>{reward.description}</p>
-      <span>ESTIMATED DELIVERY</span>
+      <p className="reward-description">{reward.description}</p>
+      <span>estimated delivery</span>
       <p className="delivery-date">{reward.delivery_date}</p>
       <p className="reward-backers">{reward.total_backers} backers</p>
     </li>
@@ -14,3 +14,4 @@ const RewardListItem = ({reward}) => {
 };
 
 export default RewardListItem;
+// <p className="delivery-date">{reward.delivery_date}</p>
