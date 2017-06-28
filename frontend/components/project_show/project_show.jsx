@@ -24,9 +24,10 @@ class ProjectShow extends React.Component {
 
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
-    this.renderProjectPledgeButton = this.renderProjectPledgeButton.bind(this);
     this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderProjectPLedgeItem = this.renderProjectPledgeItem.bind(this);
+    // this.renderProjectPledgeButton = this.renderProjectPledgeButton.bind(this);
   }
 
   componentDidMount() {
@@ -73,17 +74,46 @@ class ProjectShow extends React.Component {
     }
   }
 
-  renderProjectPledgeButton() {
+  // renderProjectPledgeButton() {
+  //   if (this.state.projectButtonShow) {
+  //     return (
+  //       <button>Pledge</button>
+  //     );
+  //   } else {
+  //     return null;
+  //   }
+  // }
+
+  renderProjectPledgeItem() {
     if (this.state.projectButtonShow) {
       return (
-        <button>Pledge</button>
+        <li className="project-pledge-item-active" onClick={this.handleProjectPledgeClick}>
+          <h4>Make a pledge without a reward</h4>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="number"
+              value={this.state[this.projectId].amount}
+              onChange={this.update()} />
+            <button>Pledge</button>
+          </form>
+        </li>
       );
     } else {
-      return null;
+      return (
+        <li className="project-pledge-item" onClick={this.handleProjectPledgeClick}>
+          <h4>Make a pledge without a reward</h4>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="number"
+              value={this.state[this.projectId].amount}
+              onChange={this.update()} />
+          </form>
+        </li>
+      );
     }
   }
 
-  update(field) {
+  update() {
     return e => {
       this.setState({ [this.projectId]: { amount: e.currentTarget.value } });
     };
@@ -148,16 +178,7 @@ class ProjectShow extends React.Component {
             </div>
             <ul className="project-reward-list">
               <h3>Support this project</h3>
-              <li onClick={this.handleProjectPledgeClick}>
-                <h4>Make a pledge without a reward</h4>
-                <form onSubmit={this.handleSubmit}>
-                  <input
-                    type="number"
-                    value={this.state[this.projectId].amount}
-                    onChange={this.update()} />
-                  {this.renderProjectPledgeButton()}
-                </form>
-              </li>
+              {this.renderProjectPledgeItem()}
               {this.props.rewards.map(reward =>
                 <RewardListItem key={reward.id} reward={reward} user={this.props.user} />
               )}
@@ -169,6 +190,16 @@ class ProjectShow extends React.Component {
       return null;
     }
   }
+  // <li onClick={this.handleProjectPledgeClick}>
+  //   <h4>Make a pledge without a reward</h4>
+  //   <form onSubmit={this.handleSubmit}>
+  //     <input
+  //       type="number"
+  //       value={this.state[this.projectId].amount}
+  //       onChange={this.update()} />
+  //     {this.renderProjectPledgeButton()}
+  //   </form>
+  // </li>
 }
 
 export default ProjectShow;

@@ -163,14 +163,20 @@
 }
 
 .project-reward-list li {
-  border: 1px solid #e0e4fb;
   border-radius: 2px;
   margin-bottom: 20px;
   padding: 20px;
   background-color: #F8F9FD;
 }
 
-.project-reward-list li:focus {
+.project-pledge-item,
+.reward-pledge-item {
+  border: 1px solid #e0e4fb;
+  cursor: pointer;
+}
+
+.project-pledge-item-active,
+.reward-pledge-item-active {
   border: 1px solid #586BE9;
 }
 
@@ -191,7 +197,8 @@
   border: 1px solid #586BE9;
 }
 
-.reward-list-item h5 {
+.reward-pledge-item h5,
+.reward-pledge-item-active h5 {
   color: #020621;
   font-size: 16px;
   font-weight: 400;
@@ -206,7 +213,8 @@
   font-size: 14px;
 }
 
-.reward-list-item span {
+.reward-pledge-item span,
+.reward-pledge-item-active span {
   font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
@@ -221,8 +229,38 @@
 
 .reward-backers {
   margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.4;
   color: #80809E;
+}
+
+.project-reward-list button {
+  margin-top: 10px;
+  height: 38px;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  box-sizing: border-box;
+  align-items: center;
+  transition: all 0.25s ease-in-out !important;
+}
+
+.reward-pledge-form span {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: $dark-blue;
+}
+
+.reward-pledge-form input {
+  margin-top: 5px;
+}
+
+.reward-pledge-form {
+  border-top: 1px dashed #e0e4fb;
+  padding-top: 20px;
 }
