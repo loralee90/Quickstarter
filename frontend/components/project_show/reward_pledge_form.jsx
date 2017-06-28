@@ -5,7 +5,7 @@ class RewardPledgeForm extends React.Component {
     super(props);
 
     this.state = {
-      amount: 0,
+      amount: this.props.reward.cost,
       pledgeable_type: "Reward",
       pledgeable_id: this.props.reward.id
     };

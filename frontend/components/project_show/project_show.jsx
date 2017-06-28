@@ -28,6 +28,7 @@ class ProjectShow extends React.Component {
     this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderProjectPLedgeItem = this.renderProjectPledgeItem.bind(this);
+    // this.renderEditDeleteButtons = this.renderEditDeleteButtons.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +37,8 @@ class ProjectShow extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.projectId !== newProps.match.params.id) {
+      this.props.fetchProject(newProps.match.params.id);
+    } else if (this.props.project && (this.props.project.total_backers !== newProps.project.total_backers)) {
       this.props.fetchProject(newProps.match.params.id);
     }
   }
@@ -116,20 +119,22 @@ class ProjectShow extends React.Component {
     }
   }
 
+  // renderEditDeleteButtons() {
+  //   if (this.props.project.creator_id === this.props.user.id) {
+  //     return(
+  //       <div>
+  //         <button>Edit</button>
+  //       </div>
+  //     );
+  //   }
+  // }
+
   update() {
     return e => {
       const newPledge = merge({}, this.state[this.projectId], { amount: e.currentTarget.value });
       this.setState({ [this.projectId]: newPledge});
     };
   }
-
-  // let rewardsNums = this.state.rewardsNums.slice();
-  // rewardsNums.push(rewardNum);
-  // const newRewards = merge({}, this.state.rewards, {[rewardNum]: {title: "", description: "", cost: 0, delivery_date: ""}});
-  // this.setState({rewardsNums, rewards: newRewards});
-  // renderEditDeleteButtons() {
-  //   if (this.props.user.id === this.props.project)
-  // }
 
   render() {
     if (this.props.project) {

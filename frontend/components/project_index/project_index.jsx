@@ -8,12 +8,6 @@ class ProjectIndex extends React.Component {
     this.props.fetchProjects();
   }
 
-  // componentWillReceiveNewProps(newProps) {
-  //   if (this.props !== newProps) {
-  //     this.props.fetchProjects();
-  //   }
-  // }
-
   render() {
     return (
       <section className="projects-index">
@@ -32,25 +26,3 @@ class ProjectIndex extends React.Component {
 }
 
 export default ProjectIndex;
-
-// class PokemonIndex extends Component {
-//   componentDidMount() {
-//     this.props.requestAllPokemon();
-//   }
-//
-//   render() {
-//     const { pokemon, loading } = this.props;
-//     return (
-//       loading ?
-//       <LoadingIcon /> :
-//       <section className="pokedex">
-//         <ul>
-//           {pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />)}
-//         </ul>
-//
-//         <Route exact path="/" component={PokemonFormContainer} />
-//         <Route path="/pokemon/:pokemonId" component={PokemonDetailContainer} />
-//       </section>
-//     );
-//   }
-// }

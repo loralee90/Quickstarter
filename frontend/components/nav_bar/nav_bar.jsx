@@ -27,7 +27,7 @@ class NavBar extends React.Component {
     if (this.props.currentUser && !this.props.currentUser.image) {
       return (
         <li onClick={this.toggleDropdown} className="dropbtn">
-          <img src="assets/quickstarter_avatar" alt="User avatar"></img>
+          <img src={this.props.currentUser.image_url} alt="User avatar"></img>
           <DropdownContainer hiddenClass={this.state.showMe ? "" : "hidden"} />
         </li>
       );

@@ -6,17 +6,19 @@ class ProjectIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.project = this.props.project;
-    this.percent = (this.project.total_pledge_amount / this.project.funding_goal) * 100;
+    this.percent = parseInt((this.project.total_pledge_amount / this.project.funding_goal) * 100);
 
     this.renderProgressLine = this.renderProgressLine.bind(this);
     this.renderDateRemaining = this.renderDateRemaining.bind(this);
   }
 
   renderProgressLine() {
+    let percent;
+    percent = this.percent > 100 ? 100 : this.percent;
     return (
       <Line
         className="progress-bar"
-        percent={`${this.percent}`}
+        percent={`${percent}`}
         strokeWidth="1"
         strokeColor="#2BDE73"
         trailColor="#E6E7E8"

@@ -3,7 +3,8 @@ class Api::PledgesController < ApplicationController
     @pledge = current_user.pledges.new(pledge_params)
 
     if @pledge.save
-      render :show
+      @project = @pledge.pledgeable_type == "Project" ? @pledge.pledgeable : @pledge.pledgeable.project
+      render 'api/projects/show'
     else
       render json: @pledge.errors.full_messages, status: 422
     end
