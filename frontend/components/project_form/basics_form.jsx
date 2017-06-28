@@ -78,7 +78,7 @@ class BasicsForm extends React.Component {
               <input
                 type="number"
                 value={this.props.state.funding_goal}
-                placeholder="$ 0"
+                placeholder="$0"
                 onChange={this.props.updateBasics('funding_goal')}
                 />
             </div>

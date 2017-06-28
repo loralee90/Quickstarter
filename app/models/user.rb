@@ -30,6 +30,9 @@ class User < ApplicationRecord
     class_name: :Project,
     foreign_key: :creator_id
 
+  has_many :pledges,
+    foreign_key: :backer_id
+
   attr_reader :password
 
   def self.find_by_credentials(email, pw)

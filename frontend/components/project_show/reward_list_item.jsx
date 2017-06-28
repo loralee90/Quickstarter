@@ -4,7 +4,7 @@ import RewardPledgeForm from './reward_pledge_form';
 class RewardListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { formShow: false }
+    this.state = { formShow: false };
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -41,7 +41,11 @@ class RewardListItem extends React.Component {
           <span>estimated delivery</span>
           <p className="delivery-date">{this.props.reward.delivery_date}</p>
           <p className="reward-backers">{this.props.reward.total_backers} backers</p>
-          <RewardPledgeForm formShow={this.state.formShow} reward={this.props.reward} user={this.props.user} />
+          <RewardPledgeForm
+            formShow={this.state.formShow}
+            reward={this.props.reward}
+            user={this.props.user}
+            createPledge={this.props.createPledge} />
         </li>
       );
     }

@@ -35,8 +35,9 @@ class RewardPledgeForm extends React.Component {
             type="number"
             value={this.state.amount}
             onChange={this.update()}
+            placeholder="$0"
             />
-          <button>Pledge</button>
+          <input type="submit" value="Pledge" />
         </form>
       );
     } else {

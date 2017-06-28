@@ -180,7 +180,7 @@
   border: 1px solid #586BE9;
 }
 
-.project-reward-list input {
+.project-reward-list input[type=number] {
   transition: all 200ms;
   border: 1px solid #e0e4fb;
   border-radius: 6px;
@@ -193,7 +193,7 @@
   background-color: white;
 }
 
-.project-reward-list input:focus {
+.project-reward-list input[type=number]:focus {
   border: 1px solid #586BE9;
 }
 
@@ -236,7 +236,7 @@
   color: #80809E;
 }
 
-.project-reward-list button {
+.project-reward-list input[type=submit] {
   margin-top: 10px;
   height: 38px;
   width: 100%;
