@@ -70,7 +70,7 @@ class ProjectIndexItem extends React.Component {
             </div>
             <div className="project-funding-stats">
               <div className="pledged-stat">
-                <span>{this.project.total_pledge_amount}</span>&nbsp;
+                <span>${this.project.total_pledge_amount}</span>&nbsp;
                 <p>pledged</p>
               </div>
               <div className="funded-stat">

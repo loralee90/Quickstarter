@@ -16,7 +16,8 @@ class ProjectShow extends React.Component {
         amount: 0,
         pledgeable_type: "Project",
         pledgeable_id: this.projectId
-      }
+      },
+      message: ""
     };
 
     if (this.props.user) {
@@ -28,6 +29,7 @@ class ProjectShow extends React.Component {
     this.handleProjectPledgeClick = this.handleProjectPledgeClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderProjectPLedgeItem = this.renderProjectPledgeItem.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
     // this.renderEditDeleteButtons = this.renderEditDeleteButtons.bind(this);
   }
 
@@ -80,10 +82,20 @@ class ProjectShow extends React.Component {
     }
   }
 
+  handleButtonClick(e) {
+    e.preventDefault();
+    if (this.props.user) {
+
+    } else {
+      this.props.history.push('/login');
+    }
+  }
+
   handleSubmit(e) {
     e.stopPropagation();
     e.preventDefault();
-    this.props.createPledge(this.state[this.projectId]);
+    this.props.createPledge(this.state[this.projectId])
+      .then(data => this.setState({message: "You have made a pledge"}));
   }
 
   renderProjectPledgeItem() {
@@ -98,6 +110,7 @@ class ProjectShow extends React.Component {
               onChange={this.update()}
               placeholder="$0" />
             <button onClick={this.handleSubmit}>Pledge</button>
+            <p>{this.state.message}</p>
           </form>
         </li>
       );
@@ -176,7 +189,7 @@ class ProjectShow extends React.Component {
                   {this.renderDateRemaining(this.props.project.end_date)}
                 </span>
                 <p>days to go</p>
-                <button>Back this project</button>
+                <button onClick={this.handleButtonClick}>Back this project</button>
               </div>
             </div>
           </div>
@@ -193,7 +206,8 @@ class ProjectShow extends React.Component {
                   key={reward.id}
                   reward={reward}
                   user={this.props.user}
-                  createPledge={this.props.createPledge} />
+                  createPledge={this.props.createPledge}
+                  history={this.props.history} />
               )}
             </ul>
           </div>

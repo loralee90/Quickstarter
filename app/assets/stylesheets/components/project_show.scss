@@ -66,7 +66,7 @@
 
 .show-description {
   color: #626369;
-  line-height: 20px;
+  line-height: 22px;
   font-size: 18px;
 }
 
@@ -139,6 +139,7 @@
 .show-detail p {
   font-size: 16px;
   color: $dark-gray;
+  line-height: 24px;
 }
 
 .project-show-content h3 {
@@ -211,6 +212,7 @@
   color: #80809E;
   margin-bottom: 20px;
   font-size: 14px;
+  line-height: 20px;
 }
 
 .reward-pledge-item span,
@@ -220,11 +222,13 @@
   text-transform: uppercase;
   line-height: 1.4;
   color: #80809E;
+  letter-spacing: .5px;
 }
 
 .delivery-date {
   color: #020621;
   font-size: 14px;
+  padding-top: 3px;
 }
 
 .reward-backers {

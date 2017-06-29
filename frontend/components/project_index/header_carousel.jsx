@@ -21,12 +21,12 @@ const Decorators = [{
 const HeaderCarousel = () => {
   return (
     <Carousel wrapAround={true} autoplay={true} autoplayInterval={10000}>
-      <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/024/original/500_days.jpg?1498593090" />
-      <img src="assets/quickstarter_avatar" />
-      <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/024/original/500_days.jpg?1498593090" />
-      <img src="assets/quickstarter_avatar" />
+      <img src="http://abduzeedo.com/sites/default/files/styles/home_cover/public/originals/8fcaca8a-eab8-9b7a-510a-87b412469a88.jpg?itok=-w7GCqqx" />
+      <img src="http://coresites-cdn.factorymedia.com/mpora_new/wp-content/uploads/2016/09/tny-14.jpg" />
+      <img src="http://abduzeedo.com/sites/default/files/styles/home_cover/public/originals/64452337326517.573dd7751f133.jpg?itok=hOflj9zb" />
     </Carousel>
   );
+  // <img src="assets/quickstarter_avatar" />
 };
 
 export default HeaderCarousel;

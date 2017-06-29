@@ -1,4 +1,5 @@
 import React from 'react';
+import merge from 'lodash/merge';
 
 class RewardPledgeForm extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class RewardPledgeForm extends React.Component {
   }
 
   handleSubmit(e) {
+    // let newState = merge({}, this.state);
     e.preventDefault();
     this.props.createPledge(this.state);
   }
