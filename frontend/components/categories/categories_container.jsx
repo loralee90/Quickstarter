@@ -1,4 +1,4 @@
-import { connect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { fetchCategories } from '../../actions/category_actions';
 import { selectAllCategories } from '../../reducers/selectors';
 import Categories from './categories';

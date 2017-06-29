@@ -38,8 +38,6 @@ class ProjectShow extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.projectId !== newProps.match.params.id) {
       this.props.fetchProject(newProps.match.params.id);
-    } else if (this.props.project && (this.props.project.total_backers !== newProps.project.total_backers)) {
-      this.props.fetchProject(newProps.match.params.id);
     }
   }
 
@@ -138,7 +136,6 @@ class ProjectShow extends React.Component {
 
   render() {
     if (this.props.project) {
-
       return (
         <section className="project-show-container">
           <div className="project-show-header">

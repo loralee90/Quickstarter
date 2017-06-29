@@ -7,6 +7,8 @@ import {
   EDIT_PROJECT
 } from '../actions/project_actions';
 
+import { RECEIVE_CATEGORY_PROJECTS } from '../actions/category_actions';
+
 const ProjectReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
@@ -22,6 +24,9 @@ const ProjectReducer = (state = {}, action) => {
       return newState;
     case EDIT_PROJECT:
       newState[action.project.id] = action.project;
+      return newState;
+    case RECEIVE_CATEGORY_PROJECTS:
+      merge(newState, action.projects);
       return newState;
     default:
       return state;
