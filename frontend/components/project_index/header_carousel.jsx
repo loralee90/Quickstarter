@@ -16,12 +16,12 @@ const HeaderCarousel = () => {
       </div>
 
       <div className="header-carousel-slide">
-        <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/102/original/tiny_telephone.jpg?1498803014" />
+        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/026/original/tiny_telephone.jpg?1498806263" />
       </div>
 
 
       <div className="header-carousel-slide">
-        <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/094/original/wood_keyboard.jpg?1498803011" />
+        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/018/original/wood_keyboard.jpg?1498806262" />
       </div>
 
     </Carousel>
@@ -66,4 +66,21 @@ export default HeaderCarousel;
 //   <h2>The Portable Wireless Keyboard</h2>
 //   <Link to={`/projects/${66}`}><button>View project</button></Link>
 //   <img src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/094/original/wood_keyboard.jpg?1498803011" />
+// </div>
+
+// <div className="header-carousel-slide">
+//   <img src="http://abduzeedo.com/sites/default/files/styles/home_cover/public/originals/8fcaca8a-eab8-9b7a-510a-87b412469a88.jpg?itok=-w7GCqqx" />
+// </div>
+//
+// <div className="header-carousel-slide">
+//   <img src="http://coresites-cdn.factorymedia.com/mpora_new/wp-content/uploads/2016/09/tny-14.jpg" />
+// </div>
+//
+// <div className="header-carousel-slide">
+//   <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/026/original/tiny_telephone.jpg?1498806263" />
+// </div>
+//
+//
+// <div className="header-carousel-slide">
+//   <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/018/original/wood_keyboard.jpg?1498806262" />
 // </div>

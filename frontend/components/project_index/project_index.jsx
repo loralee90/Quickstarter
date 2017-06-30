@@ -4,6 +4,7 @@ import HeaderCarousel from './header_carousel';
 
 class ProjectIndex extends React.Component {
   componentDidMount() {
+    document.body.scrollTop = 0;
     this.props.fetchProjects();
   }
 

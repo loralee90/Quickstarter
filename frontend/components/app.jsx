@@ -15,7 +15,7 @@ const App = () => (
       <NavBarContainer />
     </header>
     <Route exact path="/" component={ProjectIndexContainer} />
-    <Switch>
+    <Switch> 
       <ProjectCreateRoute exact path="/projects/new" component={ProjectFormContainer} />
       <Route exact path="/projects/:id" component={ProjectShowContainer} />
     </Switch>

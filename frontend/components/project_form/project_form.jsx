@@ -34,6 +34,7 @@ class ProjectForm extends React.Component {
   }
 
   componentDidMount() {
+    document.body.scrollTop = 0;
     this.props.fetchCategories();
   }
 

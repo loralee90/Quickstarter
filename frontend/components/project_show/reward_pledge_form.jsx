@@ -27,6 +27,7 @@ class RewardPledgeForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    e.stopPropagation();
     let pledge = merge({}, this.state.pledge);
     this.props.createPledge(this.state.pledge)
       .then(data => this.setState({pledge: pledge, message: "You have backed this reward!"}));

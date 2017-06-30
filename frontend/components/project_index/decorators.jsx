@@ -20,7 +20,7 @@ const Decorators = [
         return {
           border: 0,
           background: 'rgba(0,0,0,0)',
-          color: 'white',
+          color: 'rgb(247, 245, 242)',
           padding: 10,
           outline: 0,
           opacity: disabled ? 0.3 : 1,

@@ -14,7 +14,7 @@ Project.destroy_all
 
 users = User.create!([
   {name: "Guest", email: "guest@guest.com", password: "password"},
-  {name: "Lora Lee", email: "loraalee@gmail.com", password: "password"},
+  {name: "Lora Lee", email: "loraalee@gmail.com", password: "password", image: File.open("app/assets/images/photo.jpg")},
   {name: "Bob", email: "bob@bob.com", password: "password"},
   {name: "Sue de Beer Studio", email: "studio@studio.com", password: "password", image: File.open("app/assets/images/sue_avatar.jpg")},
   {name: "Ursula Murray Husted", email: "ursula@ursula.com", password: "password", image: File.open("app/assets/images/ursula_avatar.jpg")},

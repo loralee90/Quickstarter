@@ -34,11 +34,12 @@ class ProjectShow extends React.Component {
   }
 
   componentDidMount() {
+    document.body.scrollTop = 0;
     this.props.fetchProject(this.projectId);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!prevState.projecButtonShow && this.state.projectButtonShow) {
+    if (!prevState.projectButtonShow && this.state.projectButtonShow) {
       this.input.focus();
     }
   }
@@ -89,7 +90,9 @@ class ProjectShow extends React.Component {
   }
 
   handleButtonClick(e) {
+    debugger
     e.preventDefault();
+    e.stopPropagation();
     if (this.props.user) {
       this.form.scrollIntoView();
       this.setState({projectButtonShow: true});
