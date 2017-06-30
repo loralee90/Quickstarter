@@ -37,6 +37,12 @@ class ProjectShow extends React.Component {
     this.props.fetchProject(this.projectId);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.projecButtonShow && this.state.projectButtonShow) {
+      this.input.focus();
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.projectId !== newProps.match.params.id) {
       this.props.fetchProject(newProps.match.params.id);
@@ -85,7 +91,8 @@ class ProjectShow extends React.Component {
   handleButtonClick(e) {
     e.preventDefault();
     if (this.props.user) {
-
+      this.form.scrollIntoView();
+      this.setState({projectButtonShow: true});
     } else {
       this.props.history.push('/login');
     }
@@ -95,39 +102,33 @@ class ProjectShow extends React.Component {
     e.stopPropagation();
     e.preventDefault();
     this.props.createPledge(this.state[this.projectId])
-      .then(data => this.setState({message: "You have made a pledge"}));
+      .then(data => this.setState({message: "You have made a pledge!"}));
   }
 
   renderProjectPledgeItem() {
+    let klass = "project-pledge-item";
+    let button = null;
+    let message = null;
+
     if (this.state.projectButtonShow) {
-      return (
-        <li className="project-pledge-item-active" onClick={this.handleProjectPledgeClick}>
-          <h4>Make a pledge without a reward</h4>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="number"
-              value={this.state[this.projectId].amount}
-              onChange={this.update()}
-              placeholder="$0" />
-            <button onClick={this.handleSubmit}>Pledge</button>
-            <p>{this.state.message}</p>
-          </form>
-        </li>
-      );
-    } else {
-      return (
-        <li className="project-pledge-item" onClick={this.handleProjectPledgeClick}>
-          <h4>Make a pledge without a reward</h4>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="number"
-              value={this.state[this.projectId].amount}
-              onChange={this.update()}
-              placeholder="$0" />
-          </form>
-        </li>
-      );
+      klass = "project-pledge-item-active";
+      button = <button onClick={this.handleSubmit}>Pledge</button>;
+      message = <p>{this.state.message}</p>;
     }
+    return (
+      <li className={klass} onClick={this.handleProjectPledgeClick}>
+        <h4>Make a pledge without a reward</h4>
+        <form ref={el => this.form = el} onSubmit={this.handleSubmit}>
+          <input ref={el => this.input = el}
+            type="number"
+            value={this.state[this.projectId].amount}
+            onChange={this.update()}
+            placeholder="$0" />
+          {button}
+          {message}
+        </form>
+      </li>
+    );
   }
 
   // renderEditDeleteButtons() {
@@ -174,10 +175,10 @@ class ProjectShow extends React.Component {
               <div className="show-stats">
                 {this.renderProgressLine()}
                 <span className="show-pledge-amount">
-                  ${this.props.project.total_pledge_amount}
+                  ${this.numberWithCommas(this.props.project.total_pledge_amount)}
                 </span>
                 <p>
-                  pledged of ${this.props.project.funding_goal} goal
+                  pledged of ${this.numberWithCommas(this.props.project.funding_goal)} goal
                 </p>
                 <span className="show-backers">
                   {this.props.project.total_backers}

@@ -6,6 +6,7 @@ import RewardReducer from './reward_reducer';
 import CategoryReducer from './category_reducer';
 import ErrorReducer from './error_reducer';
 import PledgeReducer from './pledge_reducer';
+import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -13,7 +14,8 @@ const RootReducer = combineReducers({
   rewards: RewardReducer,
   categories: CategoryReducer,
   errors: ErrorReducer,
-  pledges: PledgeReducer
+  pledges: PledgeReducer,
+  search: SearchReducer
 });
 
 export default RootReducer;

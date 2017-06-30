@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DropdownContainer from './dropdown_container';
+import SearchFormContainer from './search_form_container';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {showMe: false, searchShow: false};
+
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
-    this.state = {showMe: false};
+    this.showSearch = this.showSearch.bind(this);
+    this.closeSearch = this.closeSearch.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +25,16 @@ class NavBar extends React.Component {
   toggleDropdown(e) {
     e.stopPropagation();
     this.setState({showMe: !this.state.showMe});
+  }
+
+  showSearch(e) {
+    // e.stopPropagation();
+    this.setState({searchShow: true});
+  }
+
+  closeSearch() {
+
+    this.setState({searchShow: false});
   }
 
   profileIcon() {
@@ -67,34 +81,39 @@ class NavBar extends React.Component {
   render() {
     return (
       <header className="nav-bar">
-        <nav className="left-nav">
-          <ul>
-            <li className="explore-link nav-item hidden">
-              <i className="fa fa-compass"></i>
-              &nbsp;&nbsp;
-              <Link to="/categories">Explore</Link>
-            </li>
-            <li className="start-project-link nav-item">
-              <Link to="/projects/new">Start a project</Link>
-            </li>
-          </ul>
-        </nav>
+        <SearchFormContainer
+          hiddenClass={this.state.searchShow ? "" : "hidden"}
+          closeSearch={this.closeSearch} />
+        <section className="main-nav">
+          <nav className="left-nav">
+            <ul>
+              <li className="explore-link nav-item hidden">
+                <i className="fa fa-compass"></i>
+                &nbsp;&nbsp;
+                <Link to="/categories">Explore</Link>
+              </li>
+              <li className="start-project-link nav-item">
+                <Link to="/projects/new">Start a project</Link>
+              </li>
+            </ul>
+          </nav>
 
-        <Link to="/">
-          <p className="logo-quick">QUICK</p>
-          <p className="logo-starter">STARTER</p>
-        </Link>
+          <Link to="/">
+            <p className="logo-quick">QUICK</p>
+            <p className="logo-starter">STARTER</p>
+          </Link>
 
-        <nav className="right-nav">
-          <ul>
-            <li>
-              <i className="fa fa-search"></i>
-            </li>
-            {this.profileIcon()}
-            {this.loginLink()}
-            {this.signupLink()}
-          </ul>
-        </nav>
+          <nav className="right-nav">
+            <ul>
+              <li>
+                <i onClick={this.showSearch} className="fa fa-search"></i>
+              </li>
+              {this.profileIcon()}
+              {this.loginLink()}
+              {this.signupLink()}
+            </ul>
+          </nav>
+        </section>
       </header>
     );
   }

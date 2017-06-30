@@ -9,8 +9,7 @@ class RewardListItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
+  handleClick() {
     if (this.props.user) {
       this.setState({formShow: true});
     } else {

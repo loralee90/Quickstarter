@@ -4,9 +4,6 @@ export const fetchProjects = () => {
     url: '/api/projects'
   });
 };
-
-// window.fetchProjects = fetchProjects;
-
 export const fetchProject = id => {
   return $.ajax({
     method: 'GET',

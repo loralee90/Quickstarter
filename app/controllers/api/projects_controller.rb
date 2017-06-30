@@ -36,6 +36,22 @@ class Api::ProjectsController < ApplicationController
     render json: @project
   end
 
+  def search
+    search = params[:search].downcase
+
+    if params[:search].present?
+      @projects = Project
+        .joins(:creator)
+        .where(
+          "lower(title) ~ :search OR lower(description) ~ :search OR lower(details) ~ :search OR lower(users.name) ~ :search",
+           {search: search})
+      render :search
+    else
+      @projects = Project.none
+      render json: ["No results found"]
+    end
+  end
+
   private
 
   def project_params

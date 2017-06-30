@@ -181,6 +181,15 @@
   border: 1px solid #586BE9;
 }
 
+.project-pledge-item-active p,
+.reward-pledge-form p {
+  // color: #fd003b;
+  color: #586BE9;
+  padding-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
 .project-reward-list input[type=number] {
   transition: all 200ms;
   border: 1px solid #e0e4fb;

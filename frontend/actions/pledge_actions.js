@@ -12,9 +12,11 @@ export const createPledge = pledge => dispatch => {
   return APIUtil.createPledge(pledge).then(
     project => {
       return dispatch(receiveProject(project));
-    },
-    err => {
-      return dispatch(receiveErrors(err.responseJSON));
     }
   );
 };
+
+
+// err => {
+//   return dispatch(receiveErrors(err.responseJSON));
+// }
