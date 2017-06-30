@@ -5,11 +5,28 @@
   position: relative;
 }
 
-.slider img {
+#leftButton, #rightButton {
+  height: 64px;
+  width: 32px;
+}
+
+#rightButton {
+  margin-right: 40px;
+}
+
+#leftButton {
+  margin-left: 40px;
+}
+
+.header-carousel-slide img {
   max-height: 575px;
   object-fit: cover;
   border-bottom: 1px solid #F1EEEA;
   box-sizing: border-box;
+}
+
+.header-carousel-slide button {
+  height: 60px;
 }
 
 .projects-index-content h2 {

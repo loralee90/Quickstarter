@@ -6,7 +6,7 @@ const Dropdown = ({ currentUser, logout, hiddenClass }) => {
      <ul id="dropdown" className={`dropdown-content ${hiddenClass}`} onClick={(e) => e.stopPropagation()}>
        <div className="dropdown-body">
          <li className="dropdown-item">
-           <Link to="/users/id/edit">Edit Profile</Link>
+           <Link to="/projects/new">Start a project</Link>
          </li>
        </div>
        <li className="logout">
