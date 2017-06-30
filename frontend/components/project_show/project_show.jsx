@@ -1,7 +1,6 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 import RewardListItem from './reward_list_item';
-import ProjectPledgeButton from './project_pledge_button';
 import merge from 'lodash/merge';
 
 class ProjectShow extends React.Component {
@@ -90,7 +89,6 @@ class ProjectShow extends React.Component {
   }
 
   handleButtonClick(e) {
-    debugger
     e.preventDefault();
     e.stopPropagation();
     if (this.props.user) {
@@ -123,6 +121,7 @@ class ProjectShow extends React.Component {
         <h4>Make a pledge without a reward</h4>
         <form ref={el => this.form = el} onSubmit={this.handleSubmit}>
           <input ref={el => this.input = el}
+            data-prefill-amount="10"
             type="number"
             value={this.state[this.projectId].amount}
             onChange={this.update()}

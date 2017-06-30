@@ -16,12 +16,12 @@ const HeaderCarousel = () => {
       </div>
 
       <div className="header-carousel-slide">
-        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/026/original/tiny_telephone.jpg?1498806263" />
+        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/038/original/tiny_telephone.jpg?1498837355" />
       </div>
 
 
       <div className="header-carousel-slide">
-        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/018/original/wood_keyboard.jpg?1498806262" />
+        <img src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/030/original/wood_keyboard.jpg?1498837353" />
       </div>
 
     </Carousel>
