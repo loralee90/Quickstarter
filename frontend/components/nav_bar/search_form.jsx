@@ -8,6 +8,7 @@ class SearchForm extends React.Component {
     this.renderResults = this.renderResults.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   handleChange(e) {
@@ -25,6 +26,11 @@ class SearchForm extends React.Component {
     this.props.closeSearch();
   }
 
+  clearSearch() {
+    this.setState({ search: "" });
+    this.props.closeSearch();
+  }
+
   renderResults() {
     if (this.props.results.length > 0 && this.state.search) {
       return (
@@ -32,7 +38,7 @@ class SearchForm extends React.Component {
           {this.props.results.map(result =>
             <li key={result.id} className="search-result-project">
               <div className="result-links">
-                <Link to={`/projects/${result.id}`}>{result.title}</Link>
+                <Link onClick={this.clearSearch} to={`/projects/${result.id}`}>{result.title}</Link>
               </div>
               <div className="result-category">
                 <span>{result.category_name}</span>

@@ -27,7 +27,8 @@
 
 .project-basics-field input,
 .project-basics-field select,
-.project-basics-field textarea {
+.project-basics-field textarea,
+.project-basics-field img {
   // position: relative;
   padding: 10px;
   box-sizing: border-box;
@@ -38,6 +39,18 @@
   font-size: 14px;
   width: 449px;
   resize: none;
+}
+
+.project-form-image-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-form-image-field img {
+  background-color: white;
+  margin-top: 4px;
+  height: 200px;
+  padding: 0;
 }
 
 .project-basics-field select {

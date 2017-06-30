@@ -21,14 +21,17 @@ class BasicsForm extends React.Component {
             {this.props.renderErrors()}
             <div className="project-basics-field">
               <label className="project-basics-label">Project image</label>
-              <input
-                maxLength="60"
-                type="file"
-                id="project_photo"
-                value=""
-                onChange={this.props.updateFile}
-                />
-              <img src={this.props.state.imageUrl} />
+              <div className="project-form-image-field">
+                <input
+                  alt="Image preview"
+                  maxLength="60"
+                  type="file"
+                  id="project_photo"
+                  value=""
+                  onChange={this.props.updateFile}
+                  />
+                <img src={this.props.state.imageUrl} />
+              </div>
             </div>
             <div className="project-basics-field">
               <label className="project-basics-label">Project title</label>
