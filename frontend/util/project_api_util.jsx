@@ -21,10 +21,10 @@ export const createProject = formData => {
   });
 };
 
-export const updateProject = formData => {
+export const updateProject = (id, formData) => {
   return $.ajax({
     method: 'PATCH',
-    url: '/api/projects/:id',
+    url: `/api/projects/${id}`,
     contentType: false,
     processData: false,
     data: formData

@@ -23,6 +23,7 @@ class ProjectForm extends React.Component {
       imageFile: null,
       imageUrl: null
     };
+
     this.updateFormType = this.updateFormType.bind(this);
     this.updateBasics = this.updateBasics.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +36,42 @@ class ProjectForm extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
+    this.props.fetchProject(this.props.match.params.id);
     this.props.fetchCategories();
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.project !== newProps.project) {
+      let rewardsNums = [];
+      for (let i = 1; i <= newProps.rewards.length; i++) {
+        rewardsNums.push(i);
+      }
+
+      let rewards = {};
+      newProps.rewards.forEach((reward, i) => {
+        rewards[i + 1] = {
+          title: reward.title,
+          description: reward.description,
+          cost: reward.cost,
+          delivery_date: reward.delivery_date,
+          id: reward.id
+        };
+      });
+
+      let newState = merge({}, this.state);
+      newState.title = newProps.project.title;
+      newState.description = newProps.project.description;
+      newState.end_date = newProps.project.end_date;
+      newState.funding_goal = newProps.project.funding_goal;
+      newState.details = newProps.project.details;
+      newState.category_id = newProps.project.category_id;
+      newState.rewardsNums = rewardsNums;
+      newState.rewards = rewards;
+      newState.imageUrl = newProps.project.image_url;
+
+      this.setState(newState);
+    }
+
   }
 
   componentWillUnmount() {
@@ -79,8 +115,14 @@ class ProjectForm extends React.Component {
     if (this.state.imageFile) {
       formData.append("project[image]", this.state.imageFile);
     }
-    this.props.createProject(formData)
+
+    if (this.props.project) {
+      this.props.updateProject(this.props.project.id, formData)
+        .then(data => this.props.history.push(`/projects/${data.project.id}`));
+    } else {
+      this.props.createProject(formData)
       .then(data => this.props.history.push(`/projects/${data.project.id}`));
+    }
   }
 
   updateFile(e) {

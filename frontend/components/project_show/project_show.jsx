@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'rc-progress';
+import { Link } from 'react-router-dom';
 import RewardListItem from './reward_list_item';
 import merge from 'lodash/merge';
 
@@ -29,7 +30,8 @@ class ProjectShow extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderProjectPLedgeItem = this.renderProjectPledgeItem.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
-    // this.renderEditDeleteButtons = this.renderEditDeleteButtons.bind(this);
+    this.renderEditDeleteButtons = this.renderEditDeleteButtons.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -106,6 +108,12 @@ class ProjectShow extends React.Component {
       .then(data => this.setState({message: "You have made a pledge!"}));
   }
 
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteProject(this.projectId)
+      .then(data => this.props.history.push('/'));
+  }
+
   renderProjectPledgeItem() {
     let klass = "project-pledge-item";
     let button = null;
@@ -133,15 +141,16 @@ class ProjectShow extends React.Component {
     );
   }
 
-  // renderEditDeleteButtons() {
-  //   if (this.props.project.creator_id === this.props.user.id) {
-  //     return(
-  //       <div>
-  //         <button>Edit</button>
-  //       </div>
-  //     );
-  //   }
-  // }
+  renderEditDeleteButtons() {
+    if (this.props.user && this.props.project.creator_id === this.props.user.id) {
+      return (
+        <div>
+          <button><Link to={`/projects/${this.projectId}/edit`}>Edit this project</Link></button>
+          <button onClick={this.handleDelete}>Delete this project</button>
+        </div>
+      );
+    }
+  }
 
   update() {
     return e => {
@@ -193,6 +202,7 @@ class ProjectShow extends React.Component {
                 </span>
                 <p>days to go</p>
                 <button onClick={this.handleButtonClick}>Back this project</button>
+                {this.renderEditDeleteButtons()}
               </div>
             </div>
           </div>

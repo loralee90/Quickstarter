@@ -52,8 +52,8 @@ export const deleteProject = id => dispatch => {
   );
 };
 
-export const updateProject = id => dispatch => {
-  return APIUtil.updateProject(id).then(
+export const updateProject = (id, project) => dispatch => {
+  return APIUtil.updateProject(id, project).then(
     payload => dispatch(editProject(payload)),
     err => dispatch(receiveErrors(err.responseJSON))
   );

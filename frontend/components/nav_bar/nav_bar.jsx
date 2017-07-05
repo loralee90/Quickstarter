@@ -28,12 +28,10 @@ class NavBar extends React.Component {
   }
 
   showSearch(e) {
-    // e.stopPropagation();
     this.setState({searchShow: true});
   }
 
   closeSearch() {
-
     this.setState({searchShow: false});
   }
 

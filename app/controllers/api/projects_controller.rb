@@ -22,6 +22,7 @@ class Api::ProjectsController < ApplicationController
 
   def update
     @project = current_user.projects.find(params[:id])
+    params[:project][:rewards_attributes] = JSON.parse(params[:project][:rewards_attributes])
 
     if @project.update(project_params)
       render :show
