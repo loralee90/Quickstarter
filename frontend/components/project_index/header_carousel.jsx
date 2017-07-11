@@ -17,7 +17,7 @@ const HeaderCarousel = () => {
       </div>
 
       <div className="header-carousel-slide slide-three">
-        <img className="image-three" src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/102/original/tiny_telephone.jpg?1498803014" />
+        <img className="image-three" src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/038/original/tiny_telephone.jpg?1498837355" />
         <div className="carousel-text three">
           <h1>Tiny Telephone Oakland</h1>
           <h2>Help one of the busiest recording studios in California</h2>
@@ -35,7 +35,7 @@ const HeaderCarousel = () => {
       </div>
 
       <div className="header-carousel-slide slide-four">
-        <img className="image-four" src="http://s3.amazonaws.com/quickstarter-dev/projects/images/000/000/094/original/wood_keyboard.jpg?1498803011" />
+        <img className="image-four" src="http://s3-us-east-2.amazonaws.com/quickstarter-pro/projects/images/000/000/030/original/wood_keyboard.jpg?1498837353" />
         <div className="carousel-text four">
           <h1>The Oakly</h1>
           <h2>A fully programmable, compact, portable oak keyboard</h2>
