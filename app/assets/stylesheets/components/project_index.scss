@@ -25,8 +25,64 @@
   box-sizing: border-box;
 }
 
+.carousel-text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: #020621;
+}
+
+.carousel-text h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.carousel-text h2 {
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
 .header-carousel-slide button {
+  margin-top: 20px;
   height: 60px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 18px 30px;
+  border-radius: 6px;
+}
+
+.header-carousel-slide .one {
+  top: 30%;
+}
+
+.header-carousel-slide .two {
+  top: 18%;
+}
+
+.header-carousel-slide .three {
+  top: 30%;
+  color: white;
+}
+
+.header-carousel-slide .three h1,
+.header-carousel-slide .four h1 {
+  top: 30%;
+  color: white;
+  font-weight: 300;
+}
+
+.slide-three, .slide-four {
+  background-color: black;
+}
+
+.image-three, .image-four {
+  opacity: .3;
+}
+
+.header-carousel-slide .four {
+  top: 30%;
+  color: white;
 }
 
 .projects-index-content h2 {

@@ -36,7 +36,7 @@ class ProjectForm extends React.Component {
 
   componentDidMount() {
     document.body.scrollTop = 0;
-    this.props.fetchProject(this.props.match.params.id);
+    if (this.props.fetchProject) this.props.fetchProject(this.props.match.params.id);
     this.props.fetchCategories();
   }
 
