@@ -53,7 +53,15 @@
 }
 
 .header-carousel-slide .one {
-  top: 30%;
+  top: 15%;
+}
+
+.header-carousel-slide .one h1 {
+  font-size: 100px;
+}
+
+.header-carousel-slide .one h2 {
+  color: #626369;
 }
 
 .header-carousel-slide .two {
@@ -67,7 +75,6 @@
 
 .header-carousel-slide .three h1,
 .header-carousel-slide .four h1 {
-  top: 30%;
   color: white;
   font-weight: 300;
 }
@@ -77,7 +84,7 @@
 }
 
 .image-three, .image-four {
-  opacity: .3;
+  opacity: .6;
 }
 
 .header-carousel-slide .four {

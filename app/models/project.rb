@@ -17,7 +17,7 @@
 class Project < ApplicationRecord
   validates :title, :description, :end_date, :funding_goal, :creator_id, :category_id, presence: true
 
-  has_attached_file :image, default_url: "default_project_image.jpg"
+  has_attached_file :image, default_url: "stripe_background.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   # validates_attachment_presence :image
 
