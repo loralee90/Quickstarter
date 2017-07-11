@@ -23,10 +23,6 @@ class SearchForm extends React.Component {
 
   handleClick(e) {
     e.stopPropagation();
-    this.props.closeSearch();
-  }
-
-  clearSearch() {
     this.setState({ search: "" });
     this.props.closeSearch();
   }
@@ -38,7 +34,7 @@ class SearchForm extends React.Component {
           {this.props.results.map(result =>
             <li key={result.id} className="search-result-project">
               <div className="result-links">
-                <Link onClick={this.clearSearch} to={`/projects/${result.id}`}>{result.title}</Link>
+                <Link onClick={this.handleClick} to={`/projects/${result.id}`}>{result.title}</Link>
               </div>
               <div className="result-category">
                 <span>{result.category_name}</span>
