@@ -65,5 +65,5 @@ class SearchForm extends React.Component {
     );
   }
 }
-// className={`${this.props.hiddenClass}`}
+
 export default SearchForm;
