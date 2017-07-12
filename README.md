@@ -4,8 +4,8 @@
 
 Inspired by Kickstarter, Quickstarter is a single-page web application where users can start and fund projects. It was built with Ruby on Rails, ES6, React and Redux.
 
-![Quickstarter carousel][carousel]
-![Quickstarter project index][project_index]
+![Quickstarter carousel](https://github.com/loralee90/Quickstarter/blob/master/docs/images/carousel.png)
+![Quickstarter project index](https://github.com/loralee90/Quickstarter/blob/master/docs/images/project_index.png)
 
 ## Features and Implementation
 
