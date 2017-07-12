@@ -13,7 +13,7 @@ Inspired by Kickstarter, Quickstarter is a single-page web application where use
 
 Users can create projects and add rewards on the project form page.
 
-![gif](https://media.giphy.com/media/l1K9EdZFjwQtOCvOo/giphy.gif)
+![gif](http://g.recordit.co/0jL5wUn7ey.gif)
 
 The project form consists of two elements - the Basics form which contains all the project information, and the Rewards form which contains reward information. Users are able to navigate between the two forms without losing previously typed information. The rewards form also contains an "Add a new reward" button which allows users to dynamically add as many rewards as desired.
 
