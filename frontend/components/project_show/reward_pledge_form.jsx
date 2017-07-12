@@ -34,8 +34,10 @@ class RewardPledgeForm extends React.Component {
   }
 
   render() {
+    let klass = this.props.formShow ? "reward-pledge-form" : "hidden";
+
     return (
-      <form className="reward-pledge-form" onSubmit={this.handleSubmit}>
+      <form className={klass} onSubmit={this.handleSubmit}>
         <span>pledge amount</span>
         <input
           type="number"
