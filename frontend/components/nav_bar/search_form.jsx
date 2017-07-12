@@ -8,7 +8,6 @@ class SearchForm extends React.Component {
     this.renderResults = this.renderResults.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.clearSearch = this.clearSearch.bind(this);
   }
 
   handleChange(e) {
