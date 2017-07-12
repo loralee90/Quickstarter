@@ -47,9 +47,6 @@ class Api::ProjectsController < ApplicationController
           "lower(title) ~ :search OR lower(description) ~ :search OR lower(details) ~ :search OR lower(users.name) ~ :search",
            {search: search})
       render :search
-    else
-      @projects = Project.none
-      render json: ["No results found"]
     end
   end
 
