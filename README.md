@@ -19,7 +19,7 @@ The project form consists of two elements - the Basics form which contains all t
 
 ### ProjectForm
 
-The challenge was having two different forms (Basics and Rewards), but needing to access information from both in order to create one project. To tackle this, I created a `ProjectForm` component that houses the `BasicsForm` and `RewardsForm` components. `ProjectForm` then contains a local state that stores information from both forms.
+The challenge was having two different form components (Basics and Rewards), while being able to access information from both in order to create one project. To achieve this, I created a `ProjectForm` component that houses the `BasicsForm` and `RewardsForm` components. `ProjectForm` then contains a local state that stores information from both forms.
 
 ```javascript
 this.state = {
@@ -39,7 +39,7 @@ this.state = {
 };
 ```
 
-The state also keeps track of the formType which updates when a user clicks on either the Basics or Rewards navigation buttons. This information is then passed down to the child components, which only render when the formType matches their own ("basics" for the `BasicsForm` and "rewards" for the `RewardsForm`).
+The state also keeps track of the formType which updates when a user clicks on either the Basics or Rewards navigation buttons. This information is passed down to the child components, which only render when the formType matches their own ("basics" for the `BasicsForm` and "rewards" for the `RewardsForm`).
 
 In the backend, I implemented the `accepts_nested_attributes_for` ActiveRecord method in the `Project` model in order to create projects and rewards simultaneously while nesting rewards with their associated projects. My `ProjectsController` accounts for this as well.
 
@@ -83,19 +83,7 @@ In order to keep my code DRY, I use the `ProjectForm` component for my project e
 
 ### RewardsForm
 
-Here, I needed the capability to add rewards but also to access the new rewards in my `ProjectForm`. I achieved this by first keeping track of the `rewardsNums` in my `ProjectForm` state. When a user clicks the "Add a new reward" button in the `RewardsForm`, the `updateReward` function is invoked. `updateReward` is a function passed down to the RewardsForm as a prop, and is actually bound to the `ProjectForm`, setting its state.
-
-"Add a new reward" click handler in `RewardsForm`:
-
-```javascript
-handleAdd(e) {
-  e.preventDefault();
-  let rewardNum = this.props.state.rewardsNums.length + 1;
-  this.props.updateReward(rewardNum);
-}
-```
-
-`updateReward` function in `ProjectForm`:
+Here, I needed the capability to add rewards and also access new rewards in my `ProjectForm`. I achieved this by first keeping track of the `rewardsNums` in my `ProjectForm` state. When a user clicks the "Add a new reward" button, the `updateReward` function is invoked. `updateReward` is a function passed down from `ProjectForm` to `RewardsForm` as a prop, and is actually bound to `ProjectForm`, setting its state.
 
 ```javascript
 updateReward(rewardNum, field) {
