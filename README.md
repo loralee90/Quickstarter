@@ -13,7 +13,7 @@ Inspired by Kickstarter, Quickstarter is a single-page web application where use
 
 Users can create projects and add rewards on the project form page.
 
-![gif](http://g.recordit.co/0jL5wUn7ey.gif)
+![gif](http://g.recordit.co/mp0UVAIi7y.gif)
 
 The project form consists of two elements - the Basics form which contains all the project information, and the Rewards form which contains reward information. Users are able to navigate between the two forms without losing previously typed information. The rewards form also contains an "Add a new reward" button which allows users to dynamically add as many rewards as desired.
 
@@ -123,7 +123,7 @@ The `ProjectForm` passes the new state to `RewardsForm`, where it renders new `R
 
 Users can make a live search for projects whose titles, descriptions, details, or project creators match the search.
 
-![gif](https://media.giphy.com/media/3ohryqkWViD17KgABW/giphy.gif)
+![gif](http://g.recordit.co/JpgcCKxfVx.gif)
 
 In order to implement a live search, I added a listener for changes to the search input. Each change fires an AJAX request to fetch search results. The `SearchForm` component receives the results as props and renders the new results each time.
 
@@ -155,7 +155,7 @@ end
 
 Users can make a pledge to either projects or rewards.
 
-![gif](https://media.giphy.com/media/l4FGz7mtG34OJHGUg/giphy.gif)
+![gif](http://g.recordit.co/uiZRkp9viE.gif)
 
 This is accomplished with polymorphic associations between the `Pledge`, `Project`, and `Reward` models.
 
