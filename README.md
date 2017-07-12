@@ -14,7 +14,7 @@ Users can create projects and add rewards on the project form page.
 
 The project form consists of two elements - the Basics form which contains all the project information, and the Rewards form which contains reward information. Users are able to navigate between the two forms without losing previously typed information. The rewards form also contains an "Add a new reward" button which allows users to dynamically add as many rewards as desired.
 
-#### ProjectForm
+### ProjectForm
 
 The challenge was having two different forms (Basics and Rewards), but needing to access information from both in order to create one project. To tackle this, I created a `ProjectForm` component that houses the `BasicsForm` and `RewardsForm` components. `ProjectForm` then contains a local state that stores information from both forms.
 
@@ -78,7 +78,7 @@ handleSubmit(e) {
 
 In order to keep my code DRY, I use the `ProjectForm` component for my project edit functionality as well, which is why the `handleSubmit` function checks for a project in the props. If there is a project, the `updateProject` action is fired. Otherwise, the `createProject` action is fired.
 
-#### RewardsForm
+### RewardsForm
 
 Here, I needed the capability to add rewards but also to access the new rewards in my `ProjectForm`. I achieved this by first keeping track of the `rewardsNums` in my `ProjectForm` state. When a user clicks the "Add a new reward" button in the `RewardsForm`, the `updateReward` function is invoked. `updateReward` is a function passed down to the RewardsForm as a prop, and is actually bound to the `ProjectForm`, setting its state.
 
@@ -183,14 +183,14 @@ I also wanted to create an interactive experience for users making a pledge. Cli
 
 I plan on continuing to improve upon the already implemented features and also adding the features below.
 
-##### Likes
+### Likes
 
 Users will be able to "like" projects so they can quickly save and reference the projects they've liked.
 
-##### User profile
+### User profile
 
 In order for users to keep track of their activity, I plan on building out the user profile. Users will be able to see the projects they've started as well as funded. They will also be able to upload an avatar photo and change account details.
 
-##### Credit card payments
+### Credit card payments
 
 I plan on adding credit card payment and authentication functionality to fully equip the app for consumer use.
