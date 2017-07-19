@@ -1,6 +1,6 @@
 # Quickstarter
 
-[Quickstarter live](www.quickstarter.site)
+[Quickstarter live](http://www.quickstarter.site)
 
 Inspired by Kickstarter, Quickstarter is a single-page web application where users can start and fund projects. It was built with Ruby on Rails, ES6, React and Redux.
 
