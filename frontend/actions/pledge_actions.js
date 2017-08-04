@@ -15,8 +15,3 @@ export const createPledge = pledge => dispatch => {
     }
   );
 };
-
-
-// err => {
-//   return dispatch(receiveErrors(err.responseJSON));
-// }
